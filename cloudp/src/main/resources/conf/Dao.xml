@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloudp.dao.Dao">
+    <!--配置查询所有-->
+    <!--findAll映射Dao接口中的抽象方法     com.cloudp.entity.User映射对应的实体类-->
+    <insert id="insertUser" >
+        insert into cloud.user_userprofile(username,password,email) values (#{username},#{password},#{email})
+    </insert>
+
+    <select id="findUser" resultType="com.cloudp.entity.User">
+    select * from user_userprofile where username = #{username}
+    </select>
+
+    <select id="findBook" resultType="com.cloudp.entity.Book">
+        select * from goods_book where id = #{bookid}
+    </select>
+
+    <select id="findCart" resultType="com.cloudp.entity.Cart">
+        select * from operation_goodscar where username = #{username}
+    </select>
+    
+    <insert id="addTOCart">
+        insert into operation_goodscar(goods_id,goods_num,username) values (#{bookid},1,#{username})
+    </insert>
+
+    <delete id="deleteCart">
+        delete from operation_goodscar where carid=#{carid} and username=#{username}
+    </delete>
+
+    <delete id="clearCart">
+        delete from operation_goodscar where username=#{username}
+    </delete>
+</mapper>

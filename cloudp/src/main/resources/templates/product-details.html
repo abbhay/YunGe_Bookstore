@@ -1,0 +1,1017 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="云鸽租书城">
+		<meta name="keywords" content="云鸽、租书、购买书、新书、二手书">
+
+		<title>商品信息</title>
+		<!-- Favicon -->
+		<link rel="shortcut icon" th:href="@{~/assets/img/favicon.png}" type="image/x-icon" />
+		<!-- Bootstrap CSS -->
+		<link th:href="@{~/assets/css/bootstrap.min.css}" rel="stylesheet">
+		<!-- Font-Awesome CSS -->
+		<link th:href="@{~/assets/css/font-awesome.min.css}" rel="stylesheet">
+		<!-- helper class css -->
+		<link th:href="@{~/assets/css/helper.min.css}" rel="stylesheet">
+		<!-- Plugins CSS -->
+		<link th:href="@{~/assets/css/plugins.css}" rel="stylesheet">
+		<!-- Main Style CSS -->
+		<link th:href="@{~/assets/css/style.css}" rel="stylesheet">
+		<link th:href="@{~/assets/css/skin-default.css}" rel="stylesheet" id="galio-skin">
+	</head>
+
+	<body>
+
+		<div class="wrapper box-layout">
+			<!-- header area start -->
+			<header>
+				<!-- header top start -->
+			<div th:replace="~{index::head1}"></div>
+				<!-- header top end -->
+
+				<!-- header middle start -->
+			<div th:replace="~{index::head2}"></div>
+				<!-- header middle end -->
+
+				<!-- main menu area start -->
+				<div class="main-header-wrapper bdr-bottom1">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="main-header-inner">
+									<div class="category-toggle-wrap">
+										<div class="category-toggle">
+											分类
+											<div class="cat-icon">
+												<i class="fa fa-angle-down"></i>
+											</div>
+										</div>
+										<nav th:replace="~{login-register::listfromlogin}"></nav>
+									</div>
+									<div class="main-menu">
+										<nav id="mobile-menu">
+											<ul th:replace="~{index::list}"></ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 d-block d-lg-none">
+								<div class="mobile-menu"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- main menu area end -->
+
+			</header>
+			<!-- header area end -->
+
+			<!-- breadcrumb area start -->
+			<div class="breadcrumb-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="breadcrumb-wrap">
+								<nav aria-label="breadcrumb">
+									<ul class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a th:href="@{../}">首页</a>
+										</li>
+										<li class="breadcrumb-item">
+											<a href="shop-grid-left-sidebar.html">购书</a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">书本详情</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- breadcrumb area end -->
+
+			<!-- product details wrapper start -->
+			<div class="product-details-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-9">
+							<!-- product details inner end -->
+							<div class="product-details-inner">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="product-large-slider mb-20 slick-arrow-style_2">
+											<div class="pro-large-img img-zoom" id="img1">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/0.jpg" alt="" />
+											</div>
+											<div class="pro-large-img img-zoom" id="img2">
+												<img src="assets/book/两性关系/1.jpg" th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" alt="" />
+											</div>
+											<div class="pro-large-img img-zoom" id="img3">
+												<img src="assets/book/两性关系/12.jpg" th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" alt="" />
+											</div>
+											<div class="pro-large-img img-zoom" id="img4">
+												<img src="assets/book/两性关系/16.jpg" th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" alt="" />
+											</div>
+										</div>
+										<div class="pro-nav slick-padding2 slick-arrow-style_2">
+											<div class="pro-nav-thumb"><img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/0.jpg" alt="" /></div>
+											<div class="pro-nav-thumb"><img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/1.jpg" alt="" /></div>
+											<div class="pro-nav-thumb"><img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/12.jpg" alt="" /></div>
+											<div class="pro-nav-thumb"><img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/16.jpg" alt="" /></div>
+											<div class="pro-nav-thumb"><img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" alt="" /></div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="product-details-des mt-md-34 mt-sm-34">
+											<h3><a href="#" th:text="${book.book_name}" >恋人之间的关系</a></h3>
+											<div class="ratings">
+												<span class="good"><i class="fa fa-star"></i></span>
+												<span class="good"><i class="fa fa-star"></i></span>
+												<span class="good"><i class="fa fa-star"></i></span>
+												<span class="good"><i class="fa fa-star"></i></span>
+												<span><i class="fa fa-star"></i></span>
+												<div class="pro-review">
+													<span>读者评分</span>
+												</div>
+											</div>
+											<div >
+												<span>书品等级:</span>
+												<input type="radio" name="leve" id="" value="" onclick="change(1)"/>S
+												<input type="radio" name="leve" id="" value="" onclick="change(2)"/>A
+												<input type="radio" name="leve" id="" value="" onclick="change(3)"/>B
+												<input type="radio" name="leve" id="" value="" onclick="change(4)"/>C
+											</div>
+											<div class="customer-rev">
+												<a href="#">(1 读者 评论)</a>
+											</div>
+											<div class="availability mt-10">
+												<h5>作者:</h5>
+												<span th:text="${book.book_author}">xxxx</span>
+											</div>
+											<div class="availability mt-10">
+												<h5>出版社:</h5>
+												<span th:text="${book.book_published}">xxxx</span>
+											</div>
+											<div class="availability mt-10">
+												<h5>出版时间:</h5>
+												<span th:text="${book.published_time}">xxxx</span>
+											</div>
+											<div class="availability mt-10">
+												<h5>供货商:</h5>
+												<span th:text="${book.book_seller}">xxxx</span>
+											</div>
+											<div class="availability mt-10">
+												<h5>库存:</h5>
+												<span id="kucun">[[${book.book_status}]]件</span>
+											</div>
+											<div class="pricebox">
+												<span id="price" class="regular-price" >[[${book.book_price}]]¥</span>
+											</div>
+											<p>&nbsp;&nbsp;&nbsp;彼此独立，不能过分依赖对方。一个人如果在心理上过分的依赖上恋人，自己不知不觉的就会没有自信心，就会发生改变，最后的结果会导致对方离开自己。一个人如果在经济上过分依赖恋人，自己就会变得不独立，两人关系就会变得不平等，失衡的天秤自然也不会长久。所以两个人在一起无论关系都多亲密，都不能过分的依赖对方，两人都应该保持一个独立的个体，才能够站在同一个平台，才可以一起携手走的更长更远。<br> 信任对方，给彼此留有一定的个人空间。多沟通，多交流，多出去走走。
+											</p>
+											<div class="quantity-cart-box d-flex align-items-center">
+												<div class="quantity">
+													<div class="pro-qty"><input type="text" value="1"></div>
+												</div>
+												<div class="action_link">
+													<a class="buy-btn" href="#"th:if="${not #strings.isEmpty(session.loginUser)}" th:href="@{/user/addToCart(bookid=${book.id},username=${session.loginUser.username})}">添加到购物车<i class="fa fa-shopping-cart"></i></a>
+													<a class="buy-btn" th:if="${#strings.isEmpty(session.loginUser)}" th:href="@{/login}">添加到购物车</a>
+												</div>
+											</div>
+											<div class="useful-links mt-20">
+												<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-refresh"></i>比较</a>
+												<a href="#" data-toggle="tooltip" data-placement="top" title="愿望清单"><i class="fa fa-heart-o"></i>添加到愿望清单</a>
+											</div>
+											<div class="share-icon mt-20">
+												<a class="facebook" href="#"><i class="fa fa-facebook"></i>喜欢</a>
+												<a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
+												<a class="pinterest" href="#"><i class="fa fa-pinterest"></i>收藏</a>
+												<a class="google" href="#"><i class="fa fa-google-plus"></i>分享</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- product details inner end -->
+
+							<!-- product details reviews start -->
+							<div class="product-details-reviews mt-34">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="product-review-info">
+											<ul class="nav review-tab">
+												<li>
+													<a class="active" data-toggle="tab" href="#tab_one">描述</a>
+												</li>
+												<li>
+													<a data-toggle="tab" href="#tab_two">详细信息</a>
+												</li>
+												<li>
+													<a data-toggle="tab" href="#tab_three">反馈</a>
+												</li>
+											</ul>
+											<div class="tab-content reviews-tab">
+												<div class="tab-pane fade show active" id="tab_one">
+													<div class="tab-one">
+														<p>恋人、夫妻之间的感情持续，到底跟什么有关系<br>爱一个不需要理由，但是不爱一个人的时候找出千万种理由，就是对方睡觉打鼾都会成为分手和离婚的理由，所以分手离婚的时候，只要是双方感情出现了问题都把所有的责任都揽在自己的身上，你没有错，你就是你，独一无二的，你是怎样的一个人就是怎样的一个人不需要为了谁去做任何的改变，对方如果不爱你，你真的貌美如花依然是没办法把对方留住，做自己就好，要相信总会有人欣赏到自己的好，不需要去改变，对方依然把你当成宝贝一样，才是真正的爱情。</p>
+														<div class="review-description">
+															<div class="tab-thumb">
+																<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/0.jpg" alt="">
+															</div>
+															<div class="tab-des mt-sm-24">
+																<h3>套书信息(要点) :</h3>
+																<ul>
+																	<li> 不能有所欺骗或者隐瞒</li>
+																	<li> 不能这山望着那山高</li>
+																	<li> 不能只接受对方优点，不包容对方缺点</li>
+																	<li> 不能太限制对方的自由</li>
+																	<li> 彼此独立，不能过分依赖对方。</li>
+																	<li> 信任对方，给彼此留有一定的个人空间。</li>
+																	<li> 多沟通，多交流，多出去走走。</li>
+																</ul>
+															</div>
+														</div>
+														<p>一个人如果在心理上过分的依赖上恋人，自己不知不觉的就会没有自信心，就会发生改变，最后的结果会导致对方离开自己。一个人如果在经济上过分依赖恋人，自己就会变得不独立，两人关系就会变得不平等，失衡的天秤自然也不会长久。所以两个人在一起无论关系都多亲密，都不能过分的依赖对方，两人都应该保持一个独立的个体，才能够站在同一个平台，才可以一起携手走的更长更远。</p>
+														<p>感情像鲨鱼——不往前，则死亡。你应该找到如何保持感情新鲜的方法，这样你们的关系就不会只成为日常的一部分。方法之一就是要找到新的兴趣，你们可以一起去追求，这样，你们就有值得兴奋的事情，还能共享激情。</p>
+													</div>
+												</div>
+												<div class="tab-pane fade" id="tab_two">
+													<table class="table table-bordered">
+														<tbody>
+															<tr>
+																<td>出版社：</td>
+																<td th:text="${book.book_published}">人民出版社</td>
+															</tr>
+															<tr>
+																<td>运送方式：</td>
+																<td>韵达，圆通，顺丰，邮政</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="tab-pane fade" id="tab_three">
+													<form action="#" class="review-form">
+														<h5>一条关于该套书籍的评论</h5>
+														<div class="total-reviews">
+															<div class="rev-avatar">
+																<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/img/about/avatar.jpg" alt="">
+															</div>
+															<div class="review-box">
+																<div class="ratings">
+																	<span class="good"><i class="fa fa-star"></i></span>
+																	<span class="good"><i class="fa fa-star"></i></span>
+																	<span class="good"><i class="fa fa-star"></i></span>
+																	<span class="good"><i class="fa fa-star"></i></span>
+																	<span><i class="fa fa-star"></i></span>
+																</div>
+																<div class="post-author">
+																	<p><span>admin -</span> 30 Nov, 2018</p>
+																</div>
+																<p>恋人之间情到深处的时候，他们在乎的是彼此在一起的感觉，亲吻、拥抱、缠绵，每一种爱恋的肢体语言都表达着感情的深浅。两颗靠近的心，没有戒备，没有被压迫感，没有厌恶的成分存在，一切都是情到深处时候的情不自禁。彼此心生厌恶的恋人，内心一旦有了隔阂，就算装得再恩爱，在他们的肢体语言中还是会暴露出最真实的一面。</p>
+															</div>
+														</div>
+														<div class="form-group row">
+															<div class="col">
+																<label class="col-form-label"><span class="text-danger">*</span> 你的名字</label>
+																<input type="text" class="form-control" required>
+															</div>
+														</div>
+														<div class="form-group row">
+															<div class="col">
+																<label class="col-form-label"><span class="text-danger">*</span> 邮 箱</label>
+																<input type="email" class="form-control" required>
+															</div>
+														</div>
+														<div class="form-group row">
+															<div class="col">
+																<label class="col-form-label"><span class="text-danger">*</span> 评论</label>
+																<textarea class="form-control" required></textarea>
+															</div>
+														</div>
+														<div class="form-group row">
+															<div class="col">
+																<label class="col-form-label"><span class="text-danger">*</span> 评级</label> &nbsp;&nbsp;&nbsp; Bad&nbsp;
+																<input type="radio" value="1" name="rating"> &nbsp;
+																<input type="radio" value="2" name="rating"> &nbsp;
+																<input type="radio" value="3" name="rating"> &nbsp;
+																<input type="radio" value="4" name="rating"> &nbsp;
+																<input type="radio" value="5" name="rating" checked> &nbsp;Good
+															</div>
+														</div>
+														<div class="buttons">
+															<button class="sqr-btn" type="submit">继续</button>
+														</div>
+													</form>
+													<!-- end of review-form -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- product details reviews end -->
+
+							<!-- related products area start -->
+							<div class="related-products-area mt-34">
+								<div class="section-title mb-30">
+									<div class="title-icon">
+										<i class="fa fa-desktop"></i>
+									</div>
+									<h3>相关书籍</h3>
+								</div>
+								<!-- section title end -->
+								<!-- featured category start -->
+								<div class="featured-carousel-active slick-padding slick-arrow-style">
+									<!-- product single item start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="product-details.html">
+												<img th:src="@{~/assets/book/两性关系/2.jpg}" class="img-pri" alt="">
+												<img th:src="@{~/assets/book/两性关系/4.jpg}" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="product-details.html">爱的五种能力</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">90.00¥</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1 评论(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- product single item end -->
+									<!-- product single item start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="product-details.html">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/13.jpg" class="img-pri" alt="">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/14.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="product-details.html">野兽绅士</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">120.00¥</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1 评论(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- product single item end -->
+									<!-- product single item start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="product-details.html">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/3.jpg" class="img-pri" alt="">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/6.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="product-details.html">爱情心理学</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">60.00¥</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1 评论(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- product single item end -->
+									<!-- product single item start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="product-details.html">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/18.jpg" class="img-pri" alt="">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/8.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="product-details.html">心理学</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">40.00¥</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1 评论(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- product single item end -->
+									<!-- product single item start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="product-details.html">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/13.jpg" class="img-pri" alt="">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/中小学教辅/0.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="product-details.html">哲学</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">70.00¥</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1 评论(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- product single item end -->
+									<!-- product single item start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="product-details.html">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/中小学教辅/1.jpg" class="img-pri" alt="">
+												<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/中小学教辅/11.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="product-details.html">探秘</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">70.00¥</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1 评论(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- product single item end -->
+								</div>
+								<!-- featured category end -->
+							</div>
+							<!-- related products area end -->
+						</div>
+
+						<!-- sidebar start -->
+						<div class="col-lg-3">
+							<div class="shop-sidebar-wrap fix mt-md-22 mt-sm-22">
+								<!-- featured category start -->
+								<div class="sidebar-widget mb-22">
+									<div class="section-title-2 d-flex justify-content-between mb-28">
+										<h3>热销折扣</h3>
+										<div class="category-append"></div>
+									</div>
+									<!-- section title end -->
+									<div class="category-carousel-active row" data-row="4">
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/3.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">名人哲理</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00¥
+														</div>
+														<div class="old-price">
+															<del>180.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/12.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">青年恋爱心理学</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00¥
+														</div>
+														<div class="old-price">
+															<del>180.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/中小学教辅/16.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">小学生古诗100首</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00¥
+														</div>
+														<div class="old-price">
+															<del>180.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img  th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/0.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">爱的五种语言</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00¥
+														</div>
+														<div class="old-price">
+															<del>180.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/10.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">爱情保卫战</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00¥
+														</div>
+														<div class="old-price">
+															<del>180.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" src="assets/book/两性关系/15.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">亲密关系技巧</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00¥
+														</div>
+														<div class="old-price">
+															<del>180.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img src="assets/book/两性关系/13.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">With</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00¥
+														</div>
+														<div class="old-price">
+															<del>180.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="product-details.html">
+														<img src="assets/book/两性关系/8.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="product-details.html">The Love</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															140.00¥
+														</div>
+														<div class="old-price">
+															<del>160.00¥</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1 评论(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<!-- end single item column -->
+									</div>
+								</div>
+								<!-- featured category end -->
+
+								<!-- manufacturer start -->
+								<div class="sidebar-widget mb-22">
+									<div class="sidebar-title mb-10">
+										<h3>热门书类</h3>
+									</div>
+									<div class="sidebar-widget-body">
+										<ul>
+											<li><i class="fa fa-angle-right"></i>
+												<a href="#">考研英语</a><span>(10)</span></li>
+											<li><i class="fa fa-angle-right"></i>
+												<a href="#">古风小说</a><span>(12)</span></li>
+											<li><i class="fa fa-angle-right"></i>
+												<a href="#">前沿科技</a><span>(20)</span></li>
+											<li><i class="fa fa-angle-right"></i>
+												<a href="#">文艺哲理</a><span>(12)</span></li>
+											<li><i class="fa fa-angle-right"></i>
+												<a href="#">儿童故事</a><span>(16)</span></li>
+										</ul>
+									</div>
+								</div>
+								<!-- manufacturer end -->
+
+								<!-- product tag start -->
+								<div class="sidebar-widget mb-22">
+									<div class="sidebar-title mb-20">
+										<h3>其他</h3>
+									</div>
+									<div class="sidebar-widget-body">
+										<div class="product-tag">
+											<a href="#">玄幻</a>
+											<a href="#">侦探</a>
+											<a href="#">悬疑</a>
+											<a href="#">儿童</a>
+											<a href="#">辅导</a>
+											<a href="#">爱情</a>
+											<a href="#">学习</a>
+										</div>
+									</div>
+								</div>
+								<!-- product tag end -->
+
+								<!-- sidebar banner start -->
+								<div class="sidebar-widget mb-22">
+									<div class="img-container fix img-full mt-30">
+										<a href="#"><img src="assets/img/banner/banner_shop.jpg" alt=""></a>
+									</div>
+								</div>
+								<!-- sidebar banner end -->
+							</div>
+						</div>
+						<!-- sidebar end -->
+					</div>
+				</div>
+			</div>
+			<!-- product details wrapper end -->
+
+			<!-- brand area start -->
+			<div th:replace="index::footer1"></div>
+			<!-- brand area end -->
+
+			<!-- footer area start -->
+			<footer th:replace="index::footer2"></footer>
+			<!-- footer area end -->
+
+		</div>
+
+		<!-- Quick view modal start -->
+		<div class="modal" id="quick_view">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<!-- product details inner end -->
+						<div class="product-details-inner">
+							<div class="row">
+								<div class="col-lg-5">
+									<div class="product-large-slider slick-arrow-style_2 mb-20">
+										<div class="pro-large-img">
+											<img src="assets/book/两性关系/13.jpg" th:src="@{'~/assets/book/'+${book.book_type}+'/'+${book.img_src}}" alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img th:src="@{~/assets/book/两性关系/0.jpg}"  alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img src="assets/book/两性关系/1.jpg" alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img src="assets/book/两性关系/16.jpg" alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img src="assets/book/两性关系/4.jpg" alt="" />
+										</div>
+									</div>
+									<div class="pro-nav slick-padding2 slick-arrow-style_2">
+										<div class="pro-nav-thumb"><img src="assets/book/两性关系/13.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/两性关系/0.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/两性关系/1.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/两性关系/16.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/两性关系/4.jpg" alt="" /></div>
+									</div>
+								</div>
+								<div class="col-lg-7">
+									<div class="product-details-des mt-md-34 mt-sm-34">
+										<h3><a href="product-details.html">恋爱的哲学</a></h3>
+										<div class="ratings">
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span><i class="fa fa-star"></i></span>
+											<div class="pro-review">
+												<span>1 评论(s)</span>
+											</div>
+										</div>
+										<div class="availability mt-10">
+											<h5>库存:</h5>
+											<span>2222 本</span>
+										</div>
+
+										<div class="pricebox">
+											<span class="regular-price">160.00￥</span>
+										</div>
+										<p>爱情的本质是什么？“生命诚可贵，爱情价更高，若为自由故，两者皆可抛。”这样的理论我认为并不可取，生命有两个层面：一个是肉体生命，一个是属灵生命。人不仅应看重肉体生命，更需要看重属灵生命。生命是存在的本源，没有生命一切都是空虚，一切都无从谈起，整个世界也就等于不存在，价值是与生命是联系在一起的。</p>
+										<div class="quantity-cart-box d-flex align-items-center mt-20">
+											<div class="quantity">
+												<div class="pro-qty"><input type="text" value="1"></div>
+											</div>
+											<div class="action_link">
+												<a class="buy-btn" href="#">加入购物车<i class="fa fa-shopping-cart"></i> </a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- product details inner end -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Quick view modal end -->
+
+		<!-- Scroll to top start -->
+		<div class="scroll-top not-visible">
+			<i class="fa fa-angle-up"></i>
+		</div>
+		<!-- Scroll to Top End -->
+
+		<!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+		<script th:src="@{~/assets/js/vendor/modernizr-3.6.0.min.js}"></script>
+		<!-- Jquery Min Js -->
+		<script th:src="@{~/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+		<!-- Popper Min Js -->
+		<script th:src="@{~/assets/js/vendor/popper.min.js}"></script>
+		<!-- Bootstrap Min Js -->
+		<script th:src="@{~/assets/js/vendor/bootstrap.min.js}"></script>
+		<!-- Plugins Js-->
+		<script th:src="@{~/assets/js/plugins.js}"></script>
+		<!-- Ajax Mail Js -->
+		<script th:src="@{~/assets/js/ajax-mail.js}"></script>
+		<!-- Active Js -->
+		<script th:src="@{~/assets/js/main.js}"></script>
+		<!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+		<script>
+
+            function change(a){
+                if(a==1){
+                    var obj4 = document.getElementById("kucun");
+                    var obj5 = document.getElementById("price");
+
+                    obj4.innerHTML = "241";
+                    obj5.innerHTML = "68.00￥";
+                }
+                else if(a==2){
+                    var obj4 = document.getElementById("kucun");
+                    var obj5 = document.getElementById("price");
+
+                    obj4.innerHTML = "132";
+                    obj5.innerHTML = "34.00￥";
+                }
+                else if(a==3){
+                    var obj4 = document.getElementById("kucun");
+                    var obj5 = document.getElementById("price");
+
+                    obj4.innerHTML = "98";
+                    obj5.innerHTML = "17.00￥";
+                }
+                else{
+                    var obj4 = document.getElementById("kucun");
+                    var obj5 = document.getElementById("price");
+
+                    obj4.innerHTML = "24";
+                    obj5.innerHTML = "8.50￥";
+                }
+
+            }
+		</script>
+	</body>
+
+</html>

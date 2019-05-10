@@ -1,0 +1,1227 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="云鸽租书城">
+		<meta name="keywords" content="云鸽、租书、购买书、新书、二手书">
+
+		<title>登陆/注册</title>
+		<!-- Favicon -->
+		<link rel="shortcut icon" th:href="@{~/assets/img/favicon.png}" type="image/x-icon" />
+		<!-- Bootstrap CSS -->
+		<link th:href="@{~/assets/css/bootstrap.min.css}" rel="stylesheet">
+		<!-- Font-Awesome CSS -->
+		<link th:href="@{~/assets/css/font-awesome.min.css}" rel="stylesheet">
+		<!-- helper class css -->
+		<link th:href="@{~/assets/css/helper.min.css}" rel="stylesheet">
+		<!-- Plugins CSS -->
+		<link th:href="@{~/assets/css/plugins.css}" rel="stylesheet">
+		<!-- Main Style CSS -->
+		<link th:href="@{~/assets/css/style.css}" rel="stylesheet">
+		<link th:href="@{~/assets/css/skin-default.css}" rel="stylesheet" id="galio-skin">
+	</head>
+
+	<body>
+
+		<div class="wrapper box-layout">
+			<!-- header area start -->
+            <header>
+                <div th:replace="~{index::head1}">	</div>
+
+                <div th:replace="~{index::head2}">	</div>
+                <div class="main-header-wrapper bdr-bottom1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="main-header-inner">
+                                    <div class="category-toggle-wrap">
+                                        <div class="category-toggle" >
+                                            分类
+                                            <div class="cat-icon">
+                                                <i class="fa fa-angle-down"></i>
+                                            </div>
+                                        </div>
+                                        <nav class="category-menu category-style-2" th:fragment="listfromlogin">
+                                            <ul>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-desktop"></i> 智能金融学院
+                                                    </a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-camera"></i> 智能科技学院
+                                                    </a>
+                                                    <!-- Mega Category Menu Start -->
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>计算机科学与技术</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Java</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">C/C++</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Web</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">UI</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>数字媒体技术</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Java</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">C/C++</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Web</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">UI</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>信息管理与信息系统</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Java</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">C/C++</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Web</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">UI</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>智能科学与技术</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Java</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">C/C++</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Web</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">UI</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <!-- Mega Category Menu End -->
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-book"></i>会计学院</a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-desktop"></i> 艺术设计学院
+                                                    </a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-desktop"></i> 建筑与工程学院
+                                                    </a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-desktop"></i> 现代服务管理学院
+                                                    </a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-desktop"></i> 康养护理学院
+                                                    </a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-desktop"></i> 国际教育学院
+                                                    </a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><i class="fa fa-desktop"></i> 课外书籍
+                                                    </a>
+                                                    <ul class="category-mega-menu" style="display: none;">
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a href="#"><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span><span class="expand menu-expand"></span>Type</a>
+                                                            <ul style="display: none;">
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Demo</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="main-menu">
+                                        <div class="mean-push"></div><nav id="mobile-menu" style="display: none;">
+                                        <ul th:replace="~{index::list}"></ul>
+                                    </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 d-block d-lg-none">
+                                <div class="mobile-menu mean-container"><div class="mean-bar"><a href="#nav" class="meanmenu-reveal" style="background:;color:;right:0;left:auto;"><span></span><span></span><span></span></a><nav class="mean-nav">
+                                    <ul style="display: none;">
+                                        <li class="active">
+                                            <a th:href="@{../}"><i class="fa fa-home"></i>主页 <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown" style="display: none;">
+                                                <li>
+                                                    <a href="#">新书区</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">旧书区</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">旧籍寻踪</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">艺文集览</a>
+                                                </li>
+                                            </ul>
+                                            <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                        <li class="static">
+                                            <a href="#">图书<i class="fa fa-angle-down"></i></a>
+                                            <ul class="megamenu dropdown" style="display: none;">
+                                                <li class="mega-title">
+                                                    <a href="#">纸装古籍/国民旧书</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">小说</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">文学</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">历史</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">法律</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">经济</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">生活</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li class="mega-title">
+                                                    <a href="#">期刊/报纸/外文原版</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">创刊号</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">报纸综合</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">高校学报</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Literature and Fiction&amp;文学与虚构</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li class="mega-title">
+                                                    <a href="#">小说/文学/语言文字</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li class="mega-title">
+                                                    <a href="#">工程技术/互联网</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li class="mega-title">
+                                                    <a href="#">英语四六级</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li class="mega-title">
+                                                    <a href="#">考研资料</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li class="mega-title">
+                                                    <a href="#">教材/教辅</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li class="mega-title">
+                                                    <a href="#">收藏品</a>
+                                                    <ul style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                            </ul>
+                                            <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                        <li>
+                                            <a href="#">书店 <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown" style="display: none;">
+                                                <li>
+                                                    <a href="#">西南财经大学天府学院 <i class="fa fa-angle-right"></i></a>
+                                                    <ul class="dropdown" style="display: none;">
+                                                        <li>
+                                                            <a href="#">绵阳校区图书馆</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">成都东区图书馆</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">成都西区图书馆</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">罗江校区图书馆</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">敏思书设</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">多米岛</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li>
+                                                    <a href="#">XXXXXXX学院 <i class="fa fa-angle-right"></i></a>
+                                                    <ul class="dropdown" style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                                <li>
+                                                    <a href="#">XXXXXXX学院 <i class="fa fa-angle-right"></i></a>
+                                                    <ul class="dropdown" style="display: none;">
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Demo</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                            </ul>
+                                            <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                        <li>
+                                            <a href="#">Type <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown" style="display: none;">
+                                                <li>
+                                                    <a href="#">Demo</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Demo</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Demo</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Demo</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Demo</a>
+                                                </li>
+                                            </ul>
+                                            <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+
+                                        <li class="mean-last">
+                                            <a href="contact-us.html">联系我们</a>
+                                        </li>
+                                    </ul>
+                                </nav></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- header area end -->
+
+			<!-- breadcrumb area start  -->
+			<div class="breadcrumb-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="breadcrumb-wrap">
+								<nav aria-label="breadcrumb">
+									<ul class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="#">首页</a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">登录&nbsp/&nbsp注册</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- breadcrumb area end -->
+
+			<!-- login register wrapper start 登录注册 -->
+			<div class="login-register-wrapper">
+				<div class="container">
+					<div class="member-area-from-wrap">
+						<div class="row">
+							<!-- Login Content Start -->
+							<div class="col-lg-6">
+								<div class="login-reg-form-wrap  pr-lg-50">
+									<h2>登 录</h2>
+									<form th:action="@{/user/login}" method="post">
+                                        <p th:text="${login_msg}" th:if="${not #strings.isEmpty(login_msg)}" style="color: red"></p>
+										<div class="single-input-item">
+											<input type="text" name="username" placeholder="请输入用户名" required />
+										</div>
+										<div class="single-input-item">
+											<input type="password" name="password" placeholder="请输入密码" required />
+										</div>
+										<div class="single-input-item">
+											<div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+												<div class="remember-meta">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="rememberMe">
+														<label class="custom-control-label" for="rememberMe">记住密码</label>
+													</div>
+												</div>
+												<a href="#" class="forget-pwd">忘了密码?</a>
+											</div>
+										</div>
+										<div class="single-input-item">
+											<button class="sqr-btn">登 录</button>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!-- Login Content End -->
+
+							<!-- Register Content Start -->
+							<div class="col-lg-6">
+								<div class="login-reg-form-wrap mt-md-34 mt-sm-34">
+									<h2>注 册</h2>
+									<form th:action="@{/user/regist}" method="post">
+                                        <!--/*@thymesVar id="msg" type=""*/-->
+                                        <p th:text="${regist_msg}" th:if="${not #strings.isEmpty(regist_msg)}" style="color: red"></p>
+										<div class="single-input-item">
+											<input type="text" name="username" id="regist_username" placeholder="请输入用户名" required />
+										</div>
+										<div class="single-input-item">
+											<input type="email" name="email" id="regist_email" placeholder="请输入邮箱地址" required />
+										</div>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="single-input-item">
+													<input type="text" name="code" id="regist_code" value="" placeholder="请输入验证码" required/>
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="single-input-item">
+													<input type="button" name="" id="btn"  value="获取验证码" />
+
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="single-input-item">
+													<input type="password" name="password" id="regist_password" placeholder="请输入密码" required />
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="single-input-item">
+													<input type="password" name="repassword" id="regist_repassword" placeholder="请重复输入密码" required />
+												</div>
+											</div>
+										</div>
+										<div class="single-input-item">
+											<div class="login-reg-form-meta">
+												<div class="remember-meta">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="subnewsletter">
+														<label class="custom-control-label" for="subnewsletter">同意并遵守用户协议</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="single-input-item">
+											<button class="sqr-btn" onclick="check()">注册</button>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!-- Register Content End -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- login register wrapper end -->
+
+			<!-- brand area start 大众品牌 -->
+		    <div th:replace="index::footer1"></div>
+			<!-- brand area end -->
+
+			<!-- footer area start -->
+			<footer th:replace="index::footer2"></footer>
+			<!-- footer area end -->
+
+		</div>
+
+		<!-- Scroll to top start -->
+		<div class="scroll-top not-visible">
+			<i class="fa fa-angle-up"></i>
+		</div>
+		<!-- Scroll to Top End -->
+
+		<script type="text/javascript">
+                function sendemail(){
+                    $.ajax({
+                        url:"/user/sendmail",
+                        dataType:"json",
+                        data:{
+                            "email":$("#regist_email").val()
+                        },
+                        type:'POST',
+                        success(){
+                            alert($("#regist_email").val()+"已发送")
+                        },error(){
+                        }                                                            });
+                }
+			var countdown = 60;
+
+			function time(o) {
+				if(countdown == 0) {
+					o.removeAttribute("disabled");
+					o.value = "获取验证码";
+					countdown = 60;
+				} else {
+					o.setAttribute("disabled", true);
+					o.value = "重新发送(" + countdown + ")";
+					countdown--;
+					setTimeout(function() {
+							time(o)
+						},
+						1000)
+				}
+
+			}
+			document.getElementById("btn").onclick = function() {
+			   if($("#regist_username").val() == ""){
+                   $("#regist_username").focus();
+                   return;
+               }
+			   else if($("#regist_email").val() == ""){
+                    $("#regist_email").focus();
+			        return;
+                }
+               else{
+                    sendemail();
+                    time(this);
+                }
+			}
+		 function check(){
+                 if($("#regist_code").val() == ""){
+                    $("#regist_code").focus();
+                    return;
+                }else if(!$("#regist_password").val().equals($("#regist_repassword"))){
+                    alert("两次输入的密码不一致")
+                    $("#regist_repassword").focus();
+                    return;
+                }else if(!$("#rememberMe").is(":checked")){
+                    alert("请勾选协议");
+                    $("#rememberMe").focus();
+                    return;
+                }
+            }
+		</script>
+		<!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+		<script th:src="@{~/assets/js/vendor/modernizr-3.6.0.min.js}"></script>
+		<!-- Jquery Min Js -->
+		<script th:src="@{~/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+		<!-- Popper Min Js -->
+		<script th:src="@{~/assets/js/vendor/popper.min.js}"></script>
+		<!-- Bootstrap Min Js -->
+		<script th:src="@{~/assets/js/vendor/bootstrap.min.js}"></script>
+		<!-- Plugins Js-->
+		<script th:src="@{~/assets/js/plugins.js}"></script>
+		<!-- Ajax Mail Js -->
+		<script th:src="@{~/assets/js/ajax-mail.js}"></script>
+		<!-- Active Js -->
+		<script th:src="@{~/assets/js/main.js}"></script>
+		<!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+
+	</body>
+
+</html>

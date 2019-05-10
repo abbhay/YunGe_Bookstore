@@ -1,0 +1,3509 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="云鸽租书城">
+		<meta name="keywords" content="云鸽、租书、购买书、新书、二手书">
+
+		<!-- 网页头标 -->
+		<title>云鸽，让书籍共享更简单</title>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+		<!-- Bootstrap CSS -->
+		<link th:href="@{~/assets/css/bootstrap.min.css}" rel="stylesheet">
+		<!-- Font-Awesome CSS -->
+		<link th:href="@{~/assets/css/font-awesome.min.css}" rel="stylesheet">
+		<!-- helper class css -->
+		<link th:href="@{~/assets/css/helper.min.css}" rel="stylesheet">
+		<!-- Plugins CSS -->
+		<link th:href="@{~/assets/css/plugins.css}" rel="stylesheet">
+		<!-- Main Style CSS -->
+		<link th:href="@{~/assets/css/style.css}" rel="stylesheet">
+		<link th:href="@{~/assets/css/skin-default.css}" rel="stylesheet" id="galio-skin">
+	</head>
+
+	<body>
+
+		<!-- color switcher start -->
+		<!--<div class="color-switcher">
+			<div class="color-switcher-inner">
+				<div class="switcher-icon">
+					<i class="fa fa-cog fa-spin"></i>
+				</div>
+
+				<div class="switcher-panel-item">
+					<h3>Color Schemes</h3>
+					<ul class="nav flex-wrap colors">
+						<li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+						<li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+						<li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+						<li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+						<li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+						<li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+					</ul>
+				</div>
+
+				<div class="switcher-panel-item">
+					<h3>Layout Style</h3>
+					<ul class="nav layout-changer">
+						<li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+						<li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+					</ul>
+				</div>
+
+				<div class="switcher-panel-item bg">
+					<h3>Background Pattern</h3>
+					<ul class="nav flex-wrap bgbody-style bg-pattern">
+						<li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+						<li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+						<li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+						<li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+						<li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+						<li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+					</ul>
+				</div>
+
+				<div class="switcher-panel-item bg">
+					<h3>Background Image</h3>
+					<ul class="nav flex-wrap bgbody-style bg-img">
+						<li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+						<li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+						<li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+						<li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+						<li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+						<li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+					</ul>
+				</div>
+			</div>
+		</div>-->
+		<!-- color switcher end -->
+
+		<div class="wrapper">
+			<header>
+				<!-- 头部-顶部 -->
+				<div th:fragment="head1" class="header-top-area bg-gray text-center text-md-left" >
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 col-md-5">
+								<div class="header-call-action">
+									<a href="#" th:href="@{/index/about-us}">
+										<i class="fa fa-envelope"></i> cloudpe@zjhwork.xyz
+									</a>
+									<a href="#">
+										<i class="fa fa-phone"></i> 0123456789
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-7">
+								<div class="header-top-right float-md-right float-none">
+									<nav>
+										<ul>
+											<li>
+												<div class="dropdown header-top-dropdown">
+													<a class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														我的账户
+														<i class="fa fa-angle-down"></i>
+													</a>
+													<div class="dropdown-menu" aria-labelledby="myaccount">
+														<a class="dropdown-item" th:href="@{/user/info}" th:text="${session.loginUser.username}" th:if="${not #strings.isEmpty(session.loginUser)}">个人中心</a>
+														<a class="dropdown-item" th:href="@{/user/exit}" th:if="${not #strings.isEmpty(session.loginUser)}">注销</a>
+														<a th:if="${ #strings.isEmpty(session.loginUser)}" class="dropdown-item" th:href="@{/login}">登陆</a>
+														<a th:if="${ #strings.isEmpty(session.loginUser)}" class="dropdown-item" th:href="@{/regist}">注册</a>
+													</div>
+												</div>
+											</li>
+											<li>
+												<a href="#">我的收藏</a>
+											</li>
+											<li>
+												<a th:href="@{/goods/cart}" th:if="${not #strings.isEmpty(session.loginUser)}">我的购物车</a>
+											</li>
+											<li>
+												<a th:href="@{/goods/check}">查看</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 头部-顶部- end -->
+
+				<!-- 头部-中间 -->
+				<div th:fragment="head2" class="header-middle-area pt-20 pb-20">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-3">
+								<div class="brand-logo">
+									<a th:href="@{../}">
+										<img th:src="@{~/assets/img/logo/logo.png}" alt="brand logo"><br>
+									</a>
+								</div>
+							</div>
+							<!-- end logo  -->
+							<div class="col-lg-9">
+								<div class="header-middle-right">
+									<div class="header-middle-shipping mb-20">
+										<div class="single-block-shipping">
+											<div class="shipping-icon">
+												<i class="fa fa-clock-o"></i>
+											</div>
+											<div class="shipping-content">
+												<h5>营业时间</h5>
+												<span>每日: 8.00 - 21.00</span>
+											</div>
+										</div>
+										<div class="single-block-shipping">
+											<div class="shipping-icon">
+												<i class="fa fa-truck"></i>
+											</div>
+											<div class="shipping-content">
+												<h5>免费送货</h5>
+												<span>订单满20元</span>
+											</div>
+										</div>
+										<div class="single-block-shipping">
+											<div class="shipping-icon">
+												<i class="fa fa-money"></i>
+											</div>
+											<div class="shipping-content">
+												<h5>退款100%</h5>
+												<span>收货后30天内</span>
+											</div>
+										</div>
+									</div>
+									<div class="header-middle-block">
+										<div class="header-middle-searchbox">
+											<input type="text" placeholder="Search...">
+											<button class="search-btn"><i class="fa fa-search"></i></button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 头部-中间- end -->
+
+				<!-- 主菜单区域 -->
+				<div class="main-header-wrapper bdr-bottom1">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="main-header-inner">
+									<div class="category-toggle-wrap">
+										<div class="category-toggle">
+											分类
+											<div class="cat-icon">
+												<i class="fa fa-angle-down"></i>
+											</div>
+										</div>
+										<nav class="category-menu hm-1">
+											<ul>
+												<li class="menu-item-has-children">
+													<a href="shop-grid-left-sidebar.html"><i class="fa fa-book"></i> 青春文学</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<ul>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">穿越</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">影视写真</a>
+																</li>
+																<li>
+																	<a href="#">叛逆</a>
+																</li>
+																<li>
+																	<a href="#">偶像</a>
+																</li>
+																<li>
+																	<a href="#">成长</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<ul>
+																<li>
+																	<a href="#">爆笑</a>
+																</li>
+																<li>
+																	<a href="#">无厘头</a>
+																</li>
+																<li>
+																	<a href="#">悬疑</a>
+																</li>
+																<li>
+																	<a href="#">惊悚</a>
+																</li>
+																<li>
+																	<a href="#">韩国青春文学</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<ul>
+																<li>
+																	<a href="#">轻小说</a>
+																</li>
+																<li>
+																	<a href="#">玄幻</a>
+																</li>
+																<li>
+																	<a href="#">新武侠</a>
+																</li>
+																<li>
+																	<a href="#">魔幻</a>
+																</li>
+																<li>
+																	<a href="#">科幻</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<ul>
+																<li>
+																	<a href="#">重生</a>
+																</li>
+																<li>
+																	<a href="#">架空</a>
+																</li>
+																<li>
+																	<a href="#">成长</a>
+																</li>
+																<li>
+																	<a href="#">偶像</a>
+																</li>
+																<li>
+																	<a href="#">爆笑</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 小说</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="#">国外小说</a>
+															<ul>
+																<li>
+																	<a href="#">作品集</a>
+																</li>
+																<li>
+																	<a href="#">浪漫</a>
+																</li>
+																<li>
+																	<a href="#">社会</a>
+																</li>
+																<li>
+																	<a href="#">历史</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">港澳台小说</a>
+															<ul>
+																<li>
+																	<a href="#">作品集</a>
+																</li>
+																<li>
+																	<a href="#">乡土</a>
+																</li>
+																<li>
+																	<a href="#">职场</a>
+																</li>
+																<li>
+																	<a href="#">都市</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">英文原版</a>
+															<ul>
+																<li>
+																	<a href="#">历史</a>
+																</li>
+																<li>
+																	<a href="#">社会</a>
+																</li>
+																<li>
+																	<a href="#">科幻</a>
+																</li>
+																<li>
+																	<a href="#">悬疑</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">当代小说</a>
+															<ul>
+																<li>
+																	<a href="#">言情</a>
+																</li>
+																<li>
+																	<a href="#">财经</a>
+																</li>
+																<li>
+																	<a href="#">武侠</a>
+																</li>
+																<li>
+																	<a href="#">官场</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 文学</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="#">外国</a>
+															<ul>
+																<li>
+																	<a href="#">外国诗歌</a>
+																</li>
+																<li>
+																	<a href="#">外国随笔</a>
+																</li>
+																<li>
+																	<a href="#">戏剧</a>
+																</li>
+																<li>
+																	<a href="#">英文原版书-文学</a>
+																</li>
+																<li>
+																	<a href="#">评论</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">诗歌</a>
+															<ul>
+																<li>
+																	<a href="#">文学理论</a>
+																</li>
+																<li>
+																	<a href="#">浪漫诗集</a>
+																</li>
+																<li>
+																	<a href="#">古典诗词</a>
+																</li>
+																<li>
+																	<a href="#">文集</a>
+																</li>
+																<li>
+																	<a href="#">中国当代诗歌</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">纪实</a>
+															<ul>
+																<li>
+																	<a href="#">纪实文学</a>
+																</li>
+																<li>
+																	<a href="#">中国古代随笔</a>
+																</li>
+																<li>
+																	<a href="#">历史</a>
+																</li>
+																<li>
+																	<a href="#">中国古诗词</a>
+																</li>
+																<li>
+																	<a href="#">古典文学</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">文学鉴赏</a>
+															<ul>
+																<li>
+																	<a href="#">文学评论与鉴赏</a>
+																</li>
+																<li>
+																	<a href="#">文学类考试</a>
+																</li>
+																<li>
+																	<a href="#">文集</a>
+																</li>
+																<li>
+																	<a href="#">戏剧</a>
+																</li>
+																<li>
+																	<a href="#">随笔</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 动漫/幽默</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="#">港台漫画</a>
+															<ul>
+																<li>
+																	<a href="#">热血</a>
+																</li>
+																<li>
+																	<a href="#">战斗</a>
+																</li>
+																<li>
+																	<a href="#">校园</a>
+																</li>
+																<li>
+																	<a href="#">恋爱</a>
+																</li>
+																<li>
+																	<a href="#">穿越</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">日本漫画</a>
+															<ul>
+																<li>
+																	<a href="#">热血</a>
+																</li>
+																<li>
+																	<a href="#">哲学</a>
+																</li>
+																<li>
+																	<a href="#">暴力</a>
+																</li>
+																<li>
+																	<a href="#">校园</a>
+																</li>
+																<li>
+																	<a href="#">恋爱</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">欧美</a>
+															<ul>
+																<li>
+																	<a href="#">热血</a>
+																</li>
+																<li>
+																	<a href="#">战斗</a>
+																</li>
+																<li>
+																	<a href="#">校园</a>
+																</li>
+																<li>
+																	<a href="#">美学</a>
+																</li>
+																<li>
+																	<a href="#">教育</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">其他漫画</a>
+															<ul>
+																<li>
+																	<a href="#">游戏同人作品</a>
+																</li>
+																<li>
+																	<a href="#">图像小说</a>
+																</li>
+																<li>
+																	<a href="#">经典漫画集</a>
+																</li>
+																<li>
+																	<a href="#">动漫学堂</a>
+																</li>
+																<li>
+																	<a href="#">大陆漫画</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 经济</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="#">投资证券</a>
+															<ul>
+																<li>
+																	<a href="#">证券/股票</a>
+																</li>
+																<li>
+																	<a href="#">理财技巧</a>
+																</li>
+																<li>
+																	<a href="#">基金</a>
+																</li>
+																<li>
+																	<a href="#">外汇</a>
+																</li>
+																<li>
+																	<a href="#">期货</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">法律</a>
+															<ul>
+																<li>
+																	<a href="#">法学文集</a>
+																</li>
+																<li>
+																	<a href="#">理论法学</a>
+																</li>
+																<li>
+																	<a href="#">中外法律</a>
+																</li>
+																<li>
+																	<a href="#">国家法</a>
+																</li>
+																<li>
+																	<a href="#">中外法律传记</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">税务</a>
+															<ul>
+																<li>
+																	<a href="#">财政税收</a>
+																</li>
+																<li>
+																	<a href="#">税法</a>
+																</li>
+																<li>
+																	<a href="#">统计</a>
+																</li>
+																<li>
+																	<a href="#">贸易政策</a>
+																</li>
+																<li>
+																	<a href="#">税收</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">财政</a>
+															<ul>
+																<li>
+																	<a href="#">审计</a>
+																</li>
+																<li>
+																	<a href="#">经济法</a>
+																</li>
+																<li>
+																	<a href="#">中国经济</a>
+																</li>
+																<li>
+																	<a href="#">通货膨胀</a>
+																</li>
+																<li>
+																	<a href="#">区域经济</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 心理学</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="#">人性心理</a>
+															<ul>
+																<li>
+																	<a href="#">女性心理学</a>
+																</li>
+																<li>
+																	<a href="#">男性心理学</a>
+																</li>
+																<li>
+																	<a href="#">儿童心理学</a>
+																</li>
+																<li>
+																	<a href="#">老年心理学</a>
+																</li>
+																<li>
+																	<a href="#">青少年心理学</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">社会</a>
+															<ul>
+																<li>
+																	<a href="#">社会心理学</a>
+																</li>
+																<li>
+																	<a href="#">心理学入门</a>
+																</li>
+																<li>
+																	<a href="#">心理咨询与治疗</a>
+																</li>
+																<li>
+																	<a href="#">人格心理学</a>
+																</li>
+																<li>
+																	<a href="#">政法心理学</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">人格</a>
+															<ul>
+																<li>
+																	<a href="#">变态心理学</a>
+																</li>
+																<li>
+																	<a href="#">性格色彩学</a>
+																</li>
+																<li>
+																	<a href="#">色彩心理学</a>
+																</li>
+																<li>
+																	<a href="#">人格心理学</a>
+																</li>
+																<li>
+																	<a href="#">认知心理学</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">态度</a>
+															<ul>
+																<li>
+																	<a href="#">积极心理学</a>
+																</li>
+																<li>
+																	<a href="#">催眠</a>
+																</li>
+																<li>
+																	<a href="#">意识与潜意识</a>
+																</li>
+																<li>
+																	<a href="#">应用心理学</a>
+																</li>
+																<li>
+																	<a href="#">教育心理学</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 历史</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="#">民族</a>
+															<ul>
+																<li>
+																	<a href="#">民族史</a>
+																</li>
+																<li>
+																	<a href="#">传记</a>
+																</li>
+																<li>
+																	<a href="#">历代君王</a>
+																</li>
+																<li>
+																	<a href="#">民著</a>
+																</li>
+																<li>
+																	<a href="#">口述史</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">传记</a>
+															<ul>
+																<li>
+																	<a href="#">自传</a>
+																</li>
+																<li>
+																	<a href="#">领袖首脑</a>
+																</li>
+																<li>
+																	<a href="#">人文学家</a>
+																</li>
+																<li>
+																	<a href="#">军事人物</a>
+																</li>
+																<li>
+																	<a href="#">宗教人物</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">史料</a>
+															<ul>
+																<li>
+																	<a href="#">考古文学</a>
+																</li>
+																<li>
+																	<a href="#">专业史</a>
+																</li>
+																<li>
+																	<a href="#">逸闻野史</a>
+																</li>
+																<li>
+																	<a href="#">历史普及读物</a>
+																</li>
+																<li>
+																	<a href="#">历史地理</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">名著</a>
+															<ul>
+																<li>
+																	<a href="#">历史随笔</a>
+																</li>
+																<li>
+																	<a href="#">史家名著</a>
+																</li>
+																<li>
+																	<a href="#">地方史志</a>
+																</li>
+																<li>
+																	<a href="#">中国史</a>
+																</li>
+																<li>
+																	<a href="#">史料典籍</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 辅导教育</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="#">小学</a>
+															<ul>
+																<li>
+																	<a href="#">小学四年级</a>
+																</li>
+																<li>
+																	<a href="#">小学二年级</a>
+																</li>
+																<li>
+																	<a href="#">小学三年级</a>
+																</li>
+																<li>
+																	<a href="#">小学五年级</a>
+																</li>
+																<li>
+																	<a href="#">小学六年级</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">初中</a>
+															<ul>
+																<li>
+																	<a href="#">奥赛数学</a>
+																</li>
+																<li>
+																	<a href="#">初一</a>
+																</li>
+																<li>
+																	<a href="#">初二</a>
+																</li>
+																<li>
+																	<a href="#">初三</a>
+																</li>
+																<li>
+																	<a href="#">火星英语</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">高中</a>
+															<ul>
+																<li>
+																	<a href="#">化学奥赛</a>
+																</li>
+																<li>
+																	<a href="#">物理</a>
+																</li>
+																<li>
+																	<a href="#">数学</a>
+																</li>
+																<li>
+																	<a href="#">英语</a>
+																</li>
+																<li>
+																	<a href="#">其他</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">大学</a>
+															<ul>
+																<li>
+																	<a href="#">留学手册</a>
+																</li>
+																<li>
+																	<a href="#">计算机</a>
+																</li>
+																<li>
+																	<a href="#">理工</a>
+																</li>
+																<li>
+																	<a href="#">文科</a>
+																</li>
+																<li>
+																	<a href="#">其他</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#"><i class="fa fa-book"></i> 课外书籍</a>
+													<ul class="category-mega-menu">
+														<li class="menu-item-has-children">
+															<a href="shop-grid-left-sidebar.html">小说/文学/语言文字</a>
+															<ul>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">中国古典小说</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">四大名著</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">世界名著</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">科幻</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">悬疑</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="shop-grid-left-sidebar.html">历史/地理/艺术</a>
+															<ul>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">中国史</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">世界史</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">中国地理</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">世界地理</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">绘画</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">书法</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="shop-grid-left-sidebar.html">政治/法律/军事</a>
+															<ul>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">政治理论</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">世界政治</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">中国法律</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">国际法</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">国家宪法</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">军事理论</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">世界军事</a>
+																</li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="shop-grid-left-sidebar.html">哲学/心理</a>
+															<ul>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">哲学理论</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">世界哲学</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">中国哲学</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">思维科学</a>
+																</li>
+																<li>
+																	<a href="shop-grid-left-sidebar.html">心理学</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</nav>
+									</div>
+									<div class="main-menu" th:fragment="list">
+										<nav id="mobile-menu">
+											<ul>
+												<li class="active">
+													<a href="#"><i class="fa fa-home"></i>主页 <i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown">
+														<li>
+															<a href="index.html">新书区</a>
+														</li>
+														<li>
+															<a href="index-2.html">旧书区</a>
+														</li>
+														<li>
+															<a href="index-3.html">旧籍寻踪</a>
+														</li>
+														<li>
+															<a href="index-4.html">艺文集览</a>
+														</li>
+													</ul>
+												</li>
+												<li class="static">
+													<a href="#">图书<i class="fa fa-angle-down"></i></a>
+													<ul class="megamenu dropdown">
+														<li class="mega-title">
+															<a href="#">纸装古籍/国民旧书</a>
+															<ul>
+																<li>
+																	<a href="#">小说
+																	</a>
+																</li>
+																<li>
+																	<a href="#">文学
+																	</a>
+																</li>
+																<li>
+																	<a href="#">历史
+																	</a>
+																</li>
+																<li>
+																	<a href="#">法律
+																	</a>
+																</li>
+																<li>
+																	<a href="#">经济
+																	</a>
+																</li>
+																<li>
+																	<a href="#">生活
+																	</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-title">
+															<a href="#">期刊/报纸/外文原版</a>
+															<ul>
+																<li>
+																	<a href="#">创刊号</a>
+																</li>
+																<li>
+																	<a href="#">报纸综合
+																	</a>
+																</li>
+																<li>
+																	<a href="#">高校学报
+																	</a>
+																</li>
+																<li>
+																	<a href="#">Literature and Fiction&文学与虚构
+																	</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-title">
+															<a href="#">小说/文学/语言文字</a>
+															<ul>
+																<li>
+																	<a href="#">古典</a>
+																</li>
+																<li>
+																	<a href="#">武侠</a>
+																</li>
+																<li>
+																	<a href="#">校园</a>
+																</li>
+																<li>
+																	<a href="#">科幻</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-title">
+															<a href="#">工程技术/互联网</a>
+															<ul>
+																<li>
+																	<a href="#">Java</a>
+																</li>
+																<li>
+																	<a href="#">Python</a>
+																</li>
+																<li>
+																	<a href="#">C/C++</a>
+																</li>
+																<li>
+																	<a href="#">Web</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-title">
+															<a href="#">英语四六级</a>
+															<ul>
+																<li>
+																	<a href="#">单词手册</a>
+																</li>
+																<li>
+																	<a href="#">火星英语</a>
+																</li>
+																<li>
+																	<a href="#">短文</a>
+																</li>
+																<li>
+																	<a href="#">阅读理解</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-title">
+															<a href="#">考研资料</a>
+															<ul>
+																<li>
+																	<a href="#">理工</a>
+																</li>
+																<li>
+																	<a href="#">文科</a>
+																</li>
+																<li>
+																	<a href="#">教育</a>
+																</li>
+																<li>
+																	<a href="#">其他</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-title">
+															<a href="#">教材/教辅</a>
+															<ul>
+																<li>
+																	<a href="#">小学</a>
+																</li>
+																<li>
+																	<a href="#">初中</a>
+																</li>
+																<li>
+																	<a href="#">高中</a>
+																</li>
+																<li>
+																	<a href="#">大学</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-title">
+															<a href="#">收藏品</a>
+															<ul>
+																<li>
+																	<a href="#">历史通策</a>
+																</li>
+																<li>
+																	<a href="#">我的世界</a>
+																</li>
+																<li>
+																	<a href="#">熟悉的陌生人</a>
+																</li>
+																<li>
+																	<a href="#">还好</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li>
+													<a href="#">书店 <i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown">
+														<li>
+															<a href="#">西南财经大学天府学院 <i class="fa fa-angle-right"></i></a>
+															<ul class="dropdown">
+																<li>
+																	<a href="#">绵阳校区图书馆</a>
+																</li>
+																<li>
+																	<a href="#">成都东区图书馆</a>
+																</li>
+																<li>
+																	<a href="#">成都西区图书馆</a>
+																</li>
+																<li>
+																	<a href="#">罗江校区图书馆</a>
+																</li>
+																<li>
+																	<a href="#">敏思书设</a>
+																</li>
+																<li>
+																	<a href="#">多米岛</a>
+																</li>
+															</ul>
+														</li>
+														<li>
+															<a href="#">XXXXXXX学院 <i class="fa fa-angle-right"></i></a>
+															<ul class="dropdown">
+																<li>
+																	<a href="shop-list-left-sidebar.html">lorem</a>
+																</li>
+																<li>
+																	<a href="shop-list-right-sidebar.html">lorem</a>
+																</li>
+																<li>
+																	<a href="shop-list-full.html">lorem</a>
+																</li>
+															</ul>
+														</li>
+														<li>
+															<a href="#">XXXXXXX学院 <i class="fa fa-angle-right"></i></a>
+															<ul class="dropdown">
+																<li>
+																	<a href="#">lorem</a>
+																</li>
+																<li>
+																	<a href="#">lorem
+																	</a>
+																</li>
+																<li>
+																	<a href="#">lorem
+																	</a>
+																</li>
+																<li>
+																	<a href="#">lorem
+																	</a>
+																</li>
+																<li>
+																	<a href="#">lorem
+																	</a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li>
+													<a href="#">Lorem <i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown">
+														<li>
+															<a href="#">Lorem</a>
+														</li>
+														<li>
+															<a href="#">Lorem</a>
+														</li>
+														<li>
+															<a href="#">Lorem</a>
+														</li>
+														<li>
+															<a href="#">Lorem</a>
+														</li>
+														<li>
+															<a href="#">Lorem</a>
+														</li>
+														<li>
+															<a href="#">Lorem</a>
+														</li>
+													</ul>
+												</li>
+
+												<li>
+													<a href="contact-us.html" th:href="@{/index/map}">联系我们</a>
+												</li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 d-block d-lg-none">
+								<div class="mobile-menu"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 主菜单区域 end -->
+
+			</header>
+
+			<!-- 滑块区域 -->
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="slider-wrapper-area">
+							<div class="hero-slider-active hero__1 slick-dot-style hero-dot">
+								<div class="single-slider" style="background-image: url(/assets/img/slider/banner_0.jpg);">
+								</div>
+								<div class="single-slider" style="background-image: url(/assets/img/slider/banner_1.png);">
+								</div>
+								<div class="single-slider" style="background-image: url(/assets/img/slider/banner_2.jpg);">
+
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 滑块 end -->
+
+			<!-- 主页横幅区域 -->
+			<div class="banner-area mt-30">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-6 order-1">
+							<div class="img-container img-full fix imgs-res mb-sm-30">
+								<a href="#">
+									<img src="assets/img/banner/banner_left.jpg" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-5 col-md-5 order-sm-3">
+							<div class="img-container img-full fix mb-30">
+								<a href="#">
+									<img src="assets/img/banner/banner_static_top1.jpg" alt="">
+								</a>
+							</div>
+							<div class="img-container img-full fix mb-30">
+								<a href="#">
+									<img src="assets/img/banner/banner_static_top2.jpg" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6 order-2 order-md-3">
+							<div class="img-container img-full fix">
+								<a href="#">
+									<img src="assets/img/banner/banner_static_top3.jpg" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--  主页横幅区域end -->
+
+			<!-- 页面包装 -->
+			<div class="page-wrapper pt-6 pb-28 pb-md-6 pb-sm-6 pt-xs-36">
+				<div class="container">
+					<div class="row">
+						<!-- 主页左侧 -->
+						<div class="col-lg-3">
+							<div class="home-sidebar">
+								<div class="main-sidebar hot-deals-wrap mb-30">
+									<div class="section-title-2 d-flex justify-content-between mb-28">
+										<h3>热销书籍</h3>
+										<div class="slick-append"></div>
+									</div>
+									<div class="deals-carousel-active slick-padding slick-arrow-style">
+										<!-- 单个商品 -->
+										<div class="product-item fix">
+											<div class="product-thumb">
+												<a href="#" th:href="@{/goods/info(bookid=4415)}">
+													<img src="assets/book/休闲/爱好/12.jpg" class="img-pri" alt="">
+													<img src="assets/book/休闲/爱好/3.jpg" class="img-sec" alt="">
+												</a>
+												<div class="product-label">
+													<span>hot</span>
+												</div>
+												<div class="product-action-link">
+													<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                            class="fa fa-search"></i></span> </a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+												</div>
+											</div>
+											<div class="product-content">
+												<h4><a href="#">《猫咪家庭医学》</a></h4>
+												<div class="pricebox">
+													<span class="regular-price">70.00元</span>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1024 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="product-item fix">
+											<div class="product-thumb">
+												<a href="#" th:href="@{/goods/info(bookid=2190)}">
+													<img src="assets/book/心理学/0.jpg" class="img-pri" alt="">
+													<img src="assets/book/心理学/1.jpg" class="img-sec" alt="">
+												</a>
+												<div class="product-label">
+													<span>hot</span>
+												</div>
+												<div class="product-action-link">
+													<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                            class="fa fa-search"></i></span> </a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+												</div>
+											</div>
+											<div class="product-content">
+												<h4><a href="#">《天才在左，疯子在右》</a></h4>
+												<div class="pricebox">
+													<span class="regular-price">55.00元</span>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>2048 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="product-item fix">
+											<div class="product-thumb">
+												<a href="#">
+													<img src="assets/book/两性关系/0.jpg" class="img-pri" alt="">
+													<img src="assets/book/两性关系/13.jpg" class="img-sec" alt="">
+												</a>
+												<div class="product-label">
+													<span>hot</span>
+												</div>
+												<div class="product-action-link">
+													<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                            class="fa fa-search"></i></span> </a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+													<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+												</div>
+											</div>
+											<div class="product-content">
+												<h4><a href="#">《爱的五种语言》</a></h4>
+												<div class="pricebox">
+													<span class="regular-price">66.60元</span>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>520 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- 单个商品 end -->
+									</div>
+								</div>
+								<!-- 热销书籍 end -->
+
+								<!--畅销书区 -->
+								<div class="main-sidebar category-wrapper mb-24">
+									<div class="section-title-2 d-flex justify-content-between mb-28">
+										<h3>畅销书区</h3>
+										<div class="category-append"></div>
+									</div>
+									<div class="category-carousel-active row" data-row="4">
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#" th:href="@{/goods/info(bookid=1577)}">
+														<img src="assets/book/小说/0.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">三体</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00元
+														</div>
+														<div class="old-price">
+															<del>180.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>5487 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#" th:href="@{/goods/info(bookid=2403)}">
+														<img src="assets/book/小说/11.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">摆渡人</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															25.00元
+														</div>
+														<div class="old-price">
+															<del>35.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>4035 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#">
+														<img src="assets/book/小说/14.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">苏菲的世界</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															65.00元
+														</div>
+														<div class="old-price">
+															<del>80.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>4568 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#">
+														<img src="assets/book/外语/0.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">新概念英语</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															79.00元
+														</div>
+														<div class="old-price">
+															<del>99.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1451 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#" th:href="@{/goods/info(bookid=2403)}">
+														<img src="assets/book/传记/11.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">富兰克林</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															150.00元
+														</div>
+														<div class="old-price">
+															<del>180.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1024 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#">
+														<img src="assets/book/社会科学/5.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">邻人之妻</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															40.00元
+														</div>
+														<div class="old-price">
+															<del>50.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1065 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#">
+														<img src="assets/book/动漫/幽默/10.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">你不完美的样子也很美</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															30.00元
+														</div>
+														<div class="old-price">
+															<del>50.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>1659 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- end single item -->
+										</div>
+										<div class="col">
+											<div class="category-item">
+												<div class="category-thumb">
+													<a href="#">
+														<img src="assets/book/历史/1.jpg" alt="">
+													</a>
+												</div>
+												<div class="category-content">
+													<h4><a href="#">人类简史</a></h4>
+													<div class="price-box">
+														<div class="regular-price">
+															140.00元
+														</div>
+														<div class="old-price">
+															<del>160.00元</del>
+														</div>
+													</div>
+													<div class="ratings">
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span class="good"><i class="fa fa-star"></i></span>
+														<span><i class="fa fa-star"></i></span>
+														<div class="pro-review">
+															<span>2036 review(s)</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 热销书籍 end -->
+
+								<!-- 预读 start -->
+								<div class="main-sidebar blog-area mb-24">
+									<div class="section-title-2 d-flex justify-content-between mb-28">
+										<h3>简读</h3>
+										<div class="category-append"></div>
+									</div>
+									<div class="blog-carousel-active">
+										<div class="blog-item">
+											<div class="blog-thumb img-full fix">
+												<a href="#" th:href="@{/goods/info(bookid=2403)}">
+													<img src="assets/book/小说/11.jpg" alt="">
+												</a>
+											</div>
+											<div class="blog-content">
+												<h3><a href="#">摆渡人</a></h3>
+												<div class="blog-meta">
+													<span class="posted-author">克莱儿·麦克福尔（Claire Mcfall）</span>
+													<span class="post-date">2015年出版</span>
+												</div>
+												<p>单亲女孩迪伦，15岁的她，世界却一片狼藉：与母亲总是无话可说，在学校里经常受到同学的捉弄，唯一谈得来的好友也因为转学离开了。这一切都让迪伦感到无比痛苦。
+她决定去看望久未谋面的父亲，然而，路上突发交通事故。等她拼命爬出火车残骸之后，却惊恐地发现，自己好像是唯一的幸存者，而眼前，竟是一片荒原。此时，迪伦看到不远处的山坡有上一个男孩的身影。男孩将她带离了事故现场。但是，迪伦很快意识到，男孩并不是偶然出现的路人，他似乎是特意在此等候。命运，从他们相遇的那刻开始，发生了无法预料的转变……</p>
+											</div>
+											<a href="#">read more <i class="fa fa-long-arrow-right"></i></a>
+										</div>
+										<div class="blog-item">
+											<div class="blog-thumb img-full fix">
+												<a href="#">
+													<img src="assets/book/成功/励志/2.jpg" alt="">
+												</a>
+											</div>
+											<div class="blog-content">
+												<h3><a href="#">生活需要仪式感</a></h3>
+												<div class="blog-meta">
+													<span class="posted-author">李思圆</span>
+													<span class="post-date">2017年12月出版</span>
+												</div>
+												<p>出门前给爱人一个亲吻，每周为自己做一桌丰盛的大餐，帮同事庆祝一次生日，陪父母参观一次升旗仪式，定期给朋友打个问候电话……生活中的仪式感，无处不在，只是我们渐渐忽视、淡忘了。仪式感是把本来单调普通的事情，变得不一样，对此怀有敬畏心理。无聊的生活中，平淡是常态，你总要找到一种新的方式，让自己度过无趣的日子。你既可以享受美好的一切，也可以坦然面对糟糕的一切。你得意时不会忘形，失意时也不会潦倒。你知道，无论境况如何，生活都必须庄重。仪式感，会让你在平凡又琐碎的日子里，找到诗意的生活，找到继续前进的微光，找到不愿将就的勇气。</p>
+											</div>
+											<a href="blog-details.html">read more <i class="fa fa-long-arrow-right"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end 主页左侧 -->
+
+						<div class="col-lg-9">
+							<!-- 特色类别区域start -->
+							<div class="feature-category-area mt-md-70">
+								<div class="section-title mb-30">
+									<div class="title-icon">
+										<i class="fa fa-bookmark"></i>
+									</div>
+									<h3>独家特色</h3>
+								</div>
+								<!-- 火爆区start -->
+								<div class="featured-carousel-active slick-padding slick-arrow-style">
+									<!-- 商品 start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a th:href="@{/goods/info(bookid=3356)}">
+												<img src="assets/book/传记/10.jpg" class="img-pri" alt="">
+												<img src="assets/book/传记/11.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view">
+													<span data-toggle="tooltip" data-placement="left" title="Quick view">
+													<i class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist">
+													<i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare">
+													<i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart">
+													<i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="product-details.html">《周恩来传》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">90.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1024 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#" th:href="@{/goods/info(bookid=1276)}">
+												<img src="assets/book/动漫/幽默/0.jpg" class="img-pri" alt="">
+												<img src="assets/book/动漫/幽默/14.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《父与子》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">120.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#" th:href="@{/goods/info(bookid=7704)}">
+												<img src="assets/book/休闲/爱好/3.jpg" class="img-pri" alt="">
+												<img src="assets/book/休闲/爱好/7.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《遇见你，陪着你》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">60.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>2456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#" th:href="@{/goods/info(bookid=5911)}">
+												<img src="assets/book/外语/17.jpg" class="img-pri" alt="">
+												<img src="assets/book/小说/1.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《傲慢与偏见》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">50.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>11456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#">
+												<img src="assets/book/小说/14.jpg" class="img-pri" alt="">
+												<img src="assets/book/哲学/宗教/0.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《苏菲的世界》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">70.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1465 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#">
+												<img src="assets/book/小说/13.jpg" class="img-pri" alt="">
+												<img src="assets/book/小说/16.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>hot</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《追风筝的人》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">59.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 商品 end -->
+								</div>
+								<!--  火爆区end -->
+							</div>
+							<!-- 特色类别区 end -->
+
+							<!-- banner statistic start -->
+							<div class="banner-statistic pt-28 pb-36">
+								<div class="img-container fix img-full">
+									<a href="#">
+										<img src="assets/img/banner/banner_static1.jpg" alt="">
+									</a>
+								</div>
+							</div>
+							<!-- banner statistic end -->
+
+							<!-- 特色种类2 start -->
+							<div class="feature-category-area">
+								<div class="section-title mb-30">
+									<div class="title-icon">
+										<i class="fa fa-flask"></i>
+									</div>
+									<h3>新书上架</h3>
+								</div>
+								<!--特色区start -->
+								<div class="featured-carousel-active slick-padding slick-arrow-style">
+									<!-- 新书商品 start -->
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#" th:href="@{/goods/info(bookid=4217)}">
+												<img src="assets/book/小说/4.jpg" class="img-pri" alt="">
+												<img src="assets/book/保健/养生/4.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>new</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《月亮与六便士》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">70.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1215 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#" th:href="@{/goods/info(bookid=2516)}">
+												<img src="assets/book/历史/0.jpg" class="img-pri" alt="">
+												<img src="assets/book/孕产/胎教/9.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>new</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《万历十五年》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">100.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#" th:href="@{/goods/info(bookid=1542)}">
+												<img src="assets/book/家庭/家居/1.jpg" class="img-pri" alt="">
+												<img src="assets/book/家庭/家居/0.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>new</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《小家，越住越大》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">$60.00</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#" th:href="@{/goods/info(bookid=2190)}">
+												<img src="assets/book/心理学/0.jpg" class="img-pri" alt="">
+												<img src="assets/book/休闲/爱好/14.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>new</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《墨菲定律》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">50.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#">
+												<img src="assets/book/传记/0.jpg" class="img-pri" alt="">
+												<img src="assets/book/亲子/家教/12.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>new</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《成为》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">80.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1465 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="product-item fix">
+										<div class="product-thumb">
+											<a href="#">
+												<img src="assets/book/古籍/10.jpg" class="img-pri" alt="">
+												<img src="assets/book/外语/0.jpg" class="img-sec" alt="">
+											</a>
+											<div class="product-label">
+												<span>new</span>
+											</div>
+											<div class="product-action-link">
+												<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        class="fa fa-search"></i></span> </a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<h4><a href="#">《道德经》</a></h4>
+											<div class="pricebox">
+												<span class="regular-price">170.00元</span>
+												<div class="ratings">
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span class="good"><i class="fa fa-star"></i></span>
+													<span><i class="fa fa-star"></i></span>
+													<div class="pro-review">
+														<span>1456 review(s)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 新书商品 end -->
+								</div>
+								<!-- 特色区 end -->
+							</div>
+							<!-- 特色种类2 end -->
+
+							<!-- banner statistic start -->
+							<div class="banner-statistic pt-28 pb-30 pb-sm-0">
+								<div class="row">
+									<div class="col-lg-7 col-md-7">
+										<div class="img-container fix img-full mb-sm-30">
+											<a href="#">
+												<img src="assets/img/banner/banner_static2.jpg" alt="">
+											</a>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-5">
+										<div class="img-container fix img-full mb-sm-30">
+											<a href="#">
+												<img src="assets/img/banner/banner_static3.jpg" alt="">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- banner statistic end -->
+
+							<div class="category-feature-area">
+								<div class="row">
+									<div class="col-lg-4">
+										<div class="category-wrapper mb-md-24 mb-sm-24">
+											<div class="section-title-2 d-flex justify-content-between mb-28">
+												<h3>工具书</h3>
+												<div class="category-append"></div>
+											</div>
+											<div class="category-carousel-active row" data-row="4">
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/工具书/0.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《现代汉语词典》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	150.00元
+																</div>
+																<div class="old-price">
+																	<del></del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>1415 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/工具书/1.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《新华字典》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	150.00元
+																</div>
+																<div class="old-price">
+																	<del></del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>146 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/工具书/2.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《成语大词典》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	125.00元
+																</div>
+																<div class="old-price">
+																	<del>160.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>146 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/工具书/2.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《成语大词典》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	125.00元
+																</div>
+																<div class="old-price">
+																	<del>150.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>1456 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/体育/运动/1.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《围棋入门》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	50.00元
+																</div>
+																<div class="old-price">
+																	<del>80.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>189 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/中小学教辅/0.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《傅雷家书》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	150.00元
+																</div>
+																<div class="old-price">
+																	<del>180.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>145 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/两性关系/0.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《爱的五种语言》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	150.00元
+																</div>
+																<div class="old-price">
+																	<del>180.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>14947 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/休闲/爱好/15.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《问题之书》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	90.00元
+																</div>
+																<div class="old-price">
+																	<del>115.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>1 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4">
+										<div class="category-wrapper mb-md-24 mb-sm-24">
+											<div class="section-title-2 d-flex justify-content-between mb-28">
+												<h3>小说</h3>
+												<div class="category-append"></div>
+											</div>
+											<div class="category-carousel-active row" data-row="4">
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#" th:href="@{/goods/info(bookid=1577)}">
+																<img src="assets/book/小说/0.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《三体》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	190.00元
+																</div>
+																<div class="old-price">
+																	<del>210.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>2365 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/小说/1.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《夏末山谷》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	450.00元
+																</div>
+																<div class="old-price">
+																	<del>650.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>156 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/小说/10.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《云边有个小卖部》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	120.00元
+																</div>
+																<div class="old-price">
+																	<del>170.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>1546 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#" th:href="@{/goods/info(bookid=2403)}">
+																<img src="assets/book/小说/11.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《摆渡人》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	80.00元
+																</div>
+																<div class="old-price">
+																	<del>100.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>564 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/小说/12.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《漫长的告别》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	150.00元
+																</div>
+																<div class="old-price">
+																	<del>180.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>9877 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/小说/13.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《追风筝的人》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	30.00元
+																</div>
+																<div class="old-price">
+																	<del>55.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>1 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/小说/16.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《冷场》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	50.00元
+																</div>
+																<div class="old-price">
+																	<del>80.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>146 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/小说/17.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《银河帝国》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	150.00元
+																</div>
+																<div class="old-price">
+																	<del>180.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>14654 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4">
+										<div class="category-wrapper mb-md-24 mb-sm-24">
+											<div class="section-title-2 d-flex justify-content-between mb-28">
+												<h3>文学</h3>
+												<div class="category-append"></div>
+											</div>
+											<div class="category-carousel-active row" data-row="4">
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/0.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《浮生六记》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	120.00元
+																</div>
+																<div class="old-price">
+																	<del>150.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>149 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/11.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《人间草木》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	60.00元
+																</div>
+																<div class="old-price">
+																	<del></del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>14165 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/1.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《万般滋味，都是生活》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	140.00元
+																</div>
+																<div class="old-price">
+																	<del>160.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>6465 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/1.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《万般滋味，都是生活》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	160.00元
+																</div>
+																<div class="old-price">
+																	<del></del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>116 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/13.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《目送》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	20.00元
+																</div>
+																<div class="old-price">
+																	<del></del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>651 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/17.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《笑场》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	30.00元
+																</div>
+																<div class="old-price">
+																	<del>40.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>61 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/16.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《春江花夜月》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	50.00元
+																</div>
+																<div class="old-price">
+																	<del>80.00元</del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>146 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col">
+													<div class="category-item">
+														<div class="category-thumb">
+															<a href="#">
+																<img src="assets/book/文学/19.jpg" alt="">
+															</a>
+														</div>
+														<div class="category-content">
+															<h4><a href="#">《孩子，你慢慢来》</a></h4>
+															<div class="price-box">
+																<div class="regular-price">
+																	70.00元
+																</div>
+																<div class="old-price">
+																	<del></del>
+																</div>
+															</div>
+															<div class="ratings">
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span class="good"><i class="fa fa-star"></i></span>
+																<span><i class="fa fa-star"></i></span>
+																<div class="pro-review">
+																	<span>1456 review(s)</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 页面包装 end -->
+
+			<!-- 商品  -->
+			<div class="latest-product">
+				<div class="container">
+					<div class="section-title mb-30">
+						<div class="title-icon">
+							<i class="fa fa-flash"></i>
+						</div>
+						<h3>最新书籍</h3>
+					</div>
+					<!-- 特色类别 -->
+					<div class="latest-product-active slick-padding slick-arrow-style">
+						<!-- product single item start -->
+						<div class="product-item fix">
+							<div class="product-thumb">
+								<a href="#">
+									<img src="assets/book/两性关系/1.jpg" class="img-pri" alt="">
+									<img src="assets/book/两性关系/10.jpg" class="img-sec" alt="">
+								</a>
+								<div class="product-label">
+									<span>hot</span>
+								</div>
+								<div class="product-action-link">
+									<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+									</a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="#">两性、爱情</a></h4>
+								<div class="pricebox">
+									<span class="regular-price">50.00~99.00元</span>
+									<div class="ratings">
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span><i class="fa fa-star"></i></span>
+										<div class="pro-review">
+											<span>1024 review(s)</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="product-item fix">
+							<div class="product-thumb">
+								<a href="#">
+									<img src="assets/book/休闲/爱好/10.jpg" class="img-pri" alt="">
+									<img src="assets/book/休闲/爱好/13.jpg" class="img-sec" alt="">
+								</a>
+								<div class="product-label">
+									<span>hot</span>
+								</div>
+								<div class="product-action-link">
+									<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+									</a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="#">休闲、兴趣</a></h4>
+								<div class="pricebox">
+									<span class="regular-price">20.00~99.00元</span>
+									<div class="ratings">
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span><i class="fa fa-star"></i></span>
+										<div class="pro-review">
+											<span>1122 review(s)</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- product single item end -->
+						<!-- product single item start -->
+						<div class="product-item fix">
+							<div class="product-thumb">
+								<a href="#" th:href="@{/goods/info(bookid=1276)}">
+									<img src="assets/book/动漫/幽默/0.jpg" class="img-pri" alt="">
+									<img src="assets/book/动漫/幽默/1.jpg" class="img-sec" alt="">
+								</a>
+								<div class="product-label">
+									<span>hot</span>
+								</div>
+								<div class="product-action-link">
+									<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+									</a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="#">动漫、幽默</a></h4>
+								<div class="pricebox">
+									<span class="regular-price">70.00~120.00元</span>
+									<div class="ratings">
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span><i class="fa fa-star"></i></span>
+										<div class="pro-review">
+											<span>14156 review(s)</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- product single item end -->
+						<!-- product single item start -->
+						<div class="product-item fix">
+							<div class="product-thumb">
+								<a href="#" th:href="@{/goods/info(bookid=1577)}">
+									<img src="assets/book/小说/0.jpg" class="img-pri" alt="">
+									<img src="assets/book/小说/5.jpg" class="img-sec" alt="">
+								</a>
+								<div class="product-label">
+									<span>hot</span>
+								</div>
+								<div class="product-action-link">
+									<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+									</a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="#">小说</a></h4>
+								<div class="pricebox">
+									<span class="regular-price">30.00~150.00元</span>
+									<div class="ratings">
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span><i class="fa fa-star"></i></span>
+										<div class="pro-review">
+											<span>14686 review(s)</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- product single item end -->
+						<!-- product single item start -->
+						<div class="product-item fix">
+							<div class="product-thumb">
+								<a href="#">
+									<img src="assets/book/古籍/0.jpg" class="img-pri" alt="">
+									<img src="assets/book/古籍/10.jpg" class="img-sec" alt="">
+								</a>
+								<div class="product-label">
+									<span>hot</span>
+								</div>
+								<div class="product-action-link">
+									<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+									</a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="#">古籍</a></h4>
+								<div class="pricebox">
+									<span class="regular-price">70.00~210.00元</span>
+									<div class="ratings">
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span><i class="fa fa-star"></i></span>
+										<div class="pro-review">
+											<span>154 review(s)</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- product single item end -->
+						<!-- product single item start -->
+						<div class="product-item fix">
+							<div class="product-thumb">
+								<a href="#" th:href="@{/goods/info(bookid=2190)}">
+									<img src="assets/book/心理学/0.jpg" class="img-pri" alt="">
+									<img src="assets/book/心理学/1.jpg" class="img-sec" alt="">
+								</a>
+								<div class="product-label">
+									<span>hot</span>
+								</div>
+								<div class="product-action-link">
+									<a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+									</a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+									<a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="#">心理学</a></h4>
+								<div class="pricebox">
+									<span class="regular-price">50.00~135.00元</span>
+									<div class="ratings">
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span class="good"><i class="fa fa-star"></i></span>
+										<span><i class="fa fa-star"></i></span>
+										<div class="pro-review">
+											<span>1 review(s)</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- latest product end -->
+
+			<!-- brand area start -->
+			<!-- 书城图片轮播 start -->
+			<div class="brand-area pt-28 pb-30" th:fragment="footer1">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="section-title mb-30">
+								<div class="title-icon">
+									<i class="fa fa-crop"></i>
+								</div>
+								<h3>推介书城</h3>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="brand-active slick-padding slick-arrow-style">
+								<div class="brand-item text-center">
+									<a href="#"><img th:src="@{~/assets/img/brand/br1.png}" src="assets/img/brand/br1.png" alt=""></a>
+								</div>
+								<div class="brand-item text-center">
+									<a href="#"><img th:src="@{~/assets/img/brand/br2.png}" src="assets/img/brand/br2.png" alt=""></a>
+								</div>
+								<div class="brand-item text-center">
+									<a href="#"><img th:src="@{~/assets/img/brand/br3.jpg}" src="assets/img/brand/br3.jpg" alt=""></a>
+								</div>
+								<div class="brand-item text-center">
+									<a href="#"><img th:src="@{~/assets/img/brand/br4.png}" src="assets/img/brand/br4.png" alt=""></a>
+								</div>
+								<div class="brand-item text-center">
+									<a href="#"><img th:src="@{~/assets/img/brand/br5.gif}" src="assets/img/brand/br5.gif" alt=""></a>
+								</div>
+								<div class="brand-item text-center">
+									<a href="#"><img th:src="@{~/assets/img/brand/br1.png}" src="assets/img/brand/br1.png" alt=""></a>
+								</div>
+								<div class="brand-item text-center">
+									<a href="#"><img th:src="@{~/assets/img/brand/br4.png}" src="assets/img/brand/br4.png" alt=""></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 书城图片轮播 end -->
+
+			<!-- brand area end -->
+
+			<!-- footer area start -->
+			<footer th:fragment="footer2">
+				<!-- 底部-顶部 start -->
+				<div class="footer-top bg-black pt-14 pb-14">
+					<div class="container">
+						<div class="footer-top-wrapper">
+							<div class="newsletter__wrap">
+								<div class="newsletter__title">
+									<div class="newsletter__icon">
+										<i class="fa fa-envelope"></i>
+									</div>
+									<div class="newsletter__content">
+										<h3>登陆你的邮箱</h3>
+										<p>输入邮箱地址并订阅我们！</p>
+									</div>
+								</div>
+								<div class="newsletter__box">
+									<form id="mc-form">
+										<input type="email" id="mc-email" autocomplete="off" placeholder="Email">
+										<button id="mc-submit">订阅！</button>
+									</form>
+								</div>
+								<!-- 邮箱请求 Start -->
+								<div class="mailchimp-alerts">
+									<div class="mailchimp-submitting"></div>
+									<!-- 提交 end -->
+									<div class="mailchimp-success"></div>
+									<!-- 成功 end -->
+									<div class="mailchimp-error"></div>
+									<!-- 错误 end -->
+								</div>
+								<!-- 邮箱请求 end -->
+							</div>
+							<div class="social-icons">
+								<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+								<a href="#" data-toggle="tooltip" data-placement="top" title="QQ"><i class="fa fa-qq"></i></a>
+								<a href="#" data-toggle="tooltip" data-placement="top" title="Wechat"><i class="fa fa-weixin"></i></a>
+								<a href="#" data-toggle="tooltip" data-placement="top" title="微博"><i class="fa fa-weibo"></i></a>
+								<a href="#" data-toggle="tooltip" data-placement="top" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 底部-顶部 end -->
+
+				<!-- 底部-中间 start -->
+				<div class="footer-widget-area pt-40 pb-38 pb-sm-10">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 col-sm-6">
+								<div class="footer-widget mb-sm-30">
+									<div class="widget-title mb-10 mb-sm-6">
+										<h4>联系我们</h4>
+									</div>
+									<div class="widget-body">
+										<ul class="location">
+											<li><a href="https://github.com/abbhay/YunGe_Bookstore">云鸽项目Github地址</a></li>
+											<li><a href="#"></a>(800) 0123 456 789</li>
+											<li><a href="#"></a>地址: TFSWUFE</li>
+										</ul>
+										<a class="map-btn" th:href="@{/index/map}"  href="contact-us.html">在谷歌地图上打开</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="footer-widget mb-sm-30">
+									<div class="widget-title mb-10 mb-sm-6">
+										<h4>图书</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li>
+												<a href="#">小说/文学</a>
+											</li>
+											<li>
+												<a href="#">爱情/两性</a>
+											</li>
+											<li>
+												<a href="#">office应用</a>
+											</li>
+											<li>
+												<a href="#">英语四六级</a>
+											</li>
+											<li>
+												<a href="#">计算机考级</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="footer-widget mb-sm-30">
+									<div class="widget-title mb-10 mb-sm-6">
+										<h4>推介书城</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li>
+												<a href="#">孔夫子书城网</a>
+											</li>
+											<li>
+												<a href="#">中图网</a>
+											</li>
+											<li>
+												<a href="#">北新网</a>
+											</li>
+											<li>
+												<a href="#">亚马逊</a>
+											</li>
+											<li>
+												<a href="#">当当网</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="footer-widget mb-sm-30">
+									<div class="widget-title mb-10 mb-sm-6">
+										<h4>学院</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li>
+												<a href="#">智能科技学院</a>
+											</li>
+											<li>
+												<a href="#">智能金融学院</a>
+											</li>
+											<li>
+												<a href="#">会计学院</a>
+											</li>
+											<li>
+												<a href="#">艺术设计学院</a>
+											</li>
+											<li>
+												<a href="#">建筑与工程学院</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 底部-中间 end -->
+
+				<!-- 底部-结尾 start -->
+				<div class="footer-bottom-area bg-gray pt-20 pb-20">
+					<div class="container">
+						<div class="footer-bottom-wrap">
+							<div class="copyright-text">
+								<p>Copyright &copy; 2018
+									<a href="#">yunge.com</a> All Rights Reserved.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 底部-结尾 end -->
+
+			</footer>
+			<!-- 底部 end -->
+			<!-- footer area end -->
+
+		</div>
+
+		<!-- Quick view modal start -->
+		<div class="modal" id="quick_view">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<!-- product details inner end -->
+						<div class="product-details-inner">
+							<div class="row">
+								<div class="col-lg-5">
+									<div class="product-large-slider slick-arrow-style_2 mb-20">
+										<div class="pro-large-img">
+											<img src="assets/book/小说/4.jpg" alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img src="assets/book/小说/13.jpg" alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img src="assets/book/小说/5.jpg" alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img src="assets/book/小说/6.jpg" alt="" />
+										</div>
+										<div class="pro-large-img">
+											<img src="assets/book/小说/14.jpg" alt="" />
+										</div>
+									</div>
+									<div class="pro-nav slick-padding2 slick-arrow-style_2">
+										<div class="pro-nav-thumb"><img src="assets/book/小说/4.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/小说/13.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/小说/5.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/小说/6.jpg" alt="" /></div>
+										<div class="pro-nav-thumb"><img src="assets/book/小说/14.jpg" alt="" /></div>
+									</div>
+								</div>
+								<div class="col-lg-7">
+									<div class="product-details-des mt-md-34 mt-sm-34">
+										<h3><a href="#">《月亮与六便士》</a></h3>
+										<div class="ratings">
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span class="good"><i class="fa fa-star"></i></span>
+											<span><i class="fa fa-star"></i></span>
+											<div class="pro-review">
+												<span>1132 review(s)</span>
+											</div>
+										</div>
+										<div class="availability mt-10">
+											<h5>库存量:</h5>
+											<span>15本</span>
+										</div>
+										<div class="pricebox">
+											<span class="regular-price">60.00元</span>
+										</div>
+										<p>作品以法国印象派画家保罗·高更的生平为素材，描述了一个原本平凡的伦敦证券经纪人思特里克兰德，突然着了艺术的魔，抛妻弃子，绝弃了旁人看来优裕美满的生活，奔赴南太平洋的塔希提岛，用圆笔谱写出自己光辉灿烂的生命，把生命的价值全部注入绚烂的画布的故事。
+贫穷的纠缠，病魔的折磨他毫不在意，只是后悔从来没有光顾过他的意识。作品表现了天才、个性与物质文明以及现代婚姻、家庭生活之间的矛盾，有着广阔的生命视角，用散发着消毒水味道的手术刀对皮囊包裹下的人性进行了犀利地解剖，混合着看客讪笑的幽默和残忍的目光。</p>
+										<div class="quantity-cart-box d-flex align-items-center mt-20">
+											<div class="quantity">
+												<div class="pro-qty"><input type="text" value="1"></div>
+											</div>
+											<div class="action_link">
+												<a class="buy-btn" href="#">加入购物车<i class="fa fa-shopping-cart"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- product details inner end -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Quick view modal end -->
+
+		<!-- Scroll to top start -->
+		<div class="scroll-top not-visible">
+			<i class="fa fa-angle-up"></i>
+		</div>
+		<!-- Scroll to Top End -->
+
+		<!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+		<script th:src="@{~/assets/js/vendor/modernizr-3.6.0.min.js}"></script>
+		<!-- Jquery Min Js -->
+		<script th:src="@{~/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+		<!-- Popper Min Js -->
+		<script th:src="@{~/assets/js/vendor/popper.min.js}"></script>
+		<!-- Bootstrap Min Js -->
+		<script th:src="@{~/assets/js/vendor/bootstrap.min.js}"></script>
+		<!-- Plugins Js-->
+		<script th:src="@{~/assets/js/plugins.js}"></script>
+		<!-- Ajax Mail Js -->
+		<script th:src="@{~/assets/js/ajax-mail.js}"></script>
+		<!-- Active Js -->
+		<script th:src="@{~/assets/js/main.js}"></script>
+		<!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+
+	</body>
+
+</html>

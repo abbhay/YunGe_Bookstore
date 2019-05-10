@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <!-- Site title -->
+    <title>Galio - Mega Shop Responsive Bootstrap 4 Template</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link th:href="@{~/assets/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font-Awesome CSS -->
+    <link th:href="@{~/assets/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- helper class css -->
+    <link th:href="@{~/assets/css/helper.min.css}" rel="stylesheet">
+    <!-- Plugins CSS -->
+    <link th:href="@{~/assets/css/plugins.css}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link th:href="@{~/assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{~/assets/css/skin-default.css}" rel="stylesheet" id="galio-skin">
+</head>
+
+<body>
+
+    <!-- color switcher start -->
+    <div class="color-switcher">
+        <div class="color-switcher-inner">
+            <div class="switcher-icon">
+                <i class="fa fa-cog fa-spin"></i>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Color Schemes</h3>
+                <ul class="nav flex-wrap colors">
+                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Layout Style</h3>
+                <ul class="nav layout-changer">
+                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Pattern</h3>
+                <ul class="nav flex-wrap bgbody-style bg-pattern">
+                    <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Image</h3>
+                <ul class="nav flex-wrap bgbody-style bg-img">
+                    <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- color switcher end -->
+
+    <div class="wrapper box-layout">
+
+        <!-- header area start -->
+        <header>
+
+            <!-- header top start -->
+            <div th:replace="~{index::head1}"></div>
+            <div th:replace="~{index::head2}"></div>
+            <!-- header middle end -->
+
+            <!-- main menu area start -->
+            <div class="main-header-wrapper bdr-bottom1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-header-inner">
+                                <div class="category-toggle-wrap">
+                                    <div class="category-toggle">
+                                        分类
+                                        <div class="cat-icon">
+                                            <i class="fa fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                    <nav th:replace="~{login-register::listfromlogin}"></nav>
+                                </div>
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul th:replace="~{index::list}"></ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-block d-lg-none">
+                            <div class="mobile-menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main menu area end -->
+
+        </header>
+        <!-- header area end -->
+
+        <!-- breadcrumb area start -->
+
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">主页</a></li>
+                                    <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">商店</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">订单查看</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订单查看主要内容 start -->
+        <div class="checkout-page-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="checkoutaccordion" id="checkOutAccordion">
+                            <div class="card">
+                                <h3 th:if="${ #strings.isEmpty(session.loginUser)}" >退货客户？ <span data-toggle="collapse" data-target="#logInaccordion">单击此处登录</span></h3>
+                                <h3 th:if="${not #strings.isEmpty(session.loginUser)}" >当前用户： <span data-toggle="collapse" data-target="#logInaccordion" th:text="${session.loginUser.username}">单击此处登录</span></h3>
+                                <div id="logInaccordion" class="collapse" data-parent="#checkOutAccordion">
+                                    <div class="card-body">
+                                        <p>如果您以前购买过商品，请在下面的框中输入您的详细信息。如果您是新客户，请转到“账单和发货”部分。</p>
+                                        <div class="login-reg-form-wrap mt-20">
+                                            <div class="row">
+                                                <div class="col-lg-7 m-auto">
+                                                    <form action="/user/login" method="post">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="single-input-item">
+                                                                    <input type="text" name="username" placeholder="Enter your Email" required />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12">
+                                                                <div class="single-input-item">
+                                                                    <input type="password" name="password" placeholder="Enter your Password" required />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="single-input-item">
+                                                            <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                                                <div class="remember-meta">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox" class="custom-control-input" id="rememberMe" required />
+                                                                        <label class="custom-control-label" for="rememberMe">记住我</label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <a href="#" class="forget-pwd">忘记密码？</a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="single-input-item">
+                                                            <button class="check-btn sqr-btn">登陆</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="checkout-billing-details-wrap">
+                            <h2>账单详情</h2>
+                            <div class="billing-form-wrap">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="single-input-item">
+                                                <label for="f_name" class="required">姓名</label>
+                                                <input type="text" id="f_name" placeholder="Name" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="single-input-item">
+                                                <label for="l_name" class="required">名称</label>
+                                                <input type="text" id="l_name" placeholder="Name" required />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="email" class="required">邮件地址</label>
+                                        <input type="email" id="email" placeholder="Email Address" required />
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="com-name">公司</label>
+                                        <input type="text" id="com-name" placeholder="Company Name" />
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="country" class="required">国家</label>
+                                        <select name="country nice-select" id="country">
+                                            <option value="Chaina">中国</option>
+                                            <option value="Afghanistan">阿富汗</option>
+                                            <option value="Albania">阿尔巴尼亚</option>
+                                            <option value="Algeria">阿尔及利亚</option>
+                                            <option value="Armenia">美国</option>
+                                            <option value="Bangladesh">孟加拉国</option>
+                                            <option value="India">印度</option>
+                                            <option value="Pakistan">巴基斯坦</option>
+                                            <option value="England">英国</option>
+                                            <option value="France">法国</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="street-address" class="required pt-20">街道</label>
+                                        <input type="text" id="street-address" placeholder="Street address Line 1" required />
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <input type="text"  placeholder="Street address Line 2 (Optional)" />
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="town" class="required">市/县</label>
+                                        <input type="text" id="town"  placeholder="Town / City" required />
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="state">乡/镇</label>
+                                        <input type="text" id="state"  placeholder="State / Divition" />
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="postcode" class="required">邮政编码 / 邮编</label>
+                                        <input type="text" id="postcode"  placeholder="Postcode / ZIP" required />
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="phone">手机</label>
+                                        <input type="text" id="phone"  placeholder="Phone" />
+                                    </div>
+
+                                    <div class="checkout-box-wrap">
+                                        <div class="single-input-item">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="create_pwd">
+                                                <label class="custom-control-label" for="create_pwd">创建一个账户</label>
+                                            </div>
+                                        </div>
+                                        <div class="account-create single-form-row">
+                                            <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+                                            <div class="single-input-item">
+                                                <label for="pwd" class="required">输入密码</label>
+                                                <input type="password" id="pwd"  placeholder="Account Password" required />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="checkout-box-wrap">
+                                        <div class="single-input-item">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="ship_to_different">
+                                                <label class="custom-control-label" for="ship_to_different">无法运输？</label>
+                                            </div>
+                                        </div>
+                                        <div class="ship-to-different single-form-row">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="single-input-item">
+                                                        <label for="f_name_2" class="required">名字</label>
+                                                        <input type="text" id="f_name_2" placeholder="Name" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <label for="email_2" class="required">邮箱</label>
+                                                <input type="email" id="email_2" placeholder="Email Address" required />
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <label for="com-name_2">公司</label>
+                                                <input type="text" id="com-name_2" placeholder="Company Name" />
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <label for="country_2" class="required">Country</label>
+                                                <select name="country" id="country_2">
+                                                    <option value="Chaina">中国</option>
+                                                    <option value="Afghanistan">阿富汗</option>
+                                                    <option value="Albania">阿尔巴尼亚</option>
+                                                    <option value="Algeria">阿尔及利亚</option>
+                                                    <option value="Armenia">美国</option>
+                                                    <option value="Bangladesh">孟加拉国</option>
+                                                    <option value="India">印度</option>
+                                                    <option value="Pakistan">巴基斯坦</option>
+                                                    <option value="England">英国</option>
+                                                    <option value="France">法国</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <label for="street-address_2" class="required pt-20">街道</label>
+                                                <input type="text" id="street-address_2" placeholder="Street address Line 1" required />
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <input type="text"  placeholder="Street address Line 2 (Optional)" />
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <label for="town_2" class="required">市/县</label>
+                                                <input type="text" id="town_2"  placeholder="Town / City" required />
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <label for="state_2">乡/镇</label>
+                                                <input type="text" id="state_2"  placeholder="State / Divition" />
+                                            </div>
+
+                                            <div class="single-input-item">
+                                                <label for="postcode_2" class="required">邮政编码 / 邮编</label>
+                                                <input type="text" id="postcode_2"  placeholder="Postcode / ZIP" required />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <label for="ordernote">订单备注</label>
+                                        <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="有关订单的说明，例如交货的特别说明."></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--订单详情 -->
+                    <div class="col-lg-6">
+                        <div class="order-summary-details mt-md-26 mt-sm-26">
+                            <h2>你的订单</h2>
+                            <div class="order-summary-content mb-sm-4">
+                                <div class="order-summary-table table-responsive text-center">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>商品</th>
+                                            <th>总价</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><a href="single-product.html">《摆渡人》 <strong> × 1</strong></a></td>
+                                            <td>35.00元</td>
+                                        </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <td>小计</td>
+                                            <td><strong>35元</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>运输</td>
+                                            <td class="d-flex justify-content-center">
+                                                <ul class="shipping-type">
+                                                    <li>
+                                                        <div class="custom-control custom-radio">
+                                                            <input type="radio" id="flatrate" name="shipping" class="custom-control-input" checked />
+                                                            <label class="custom-control-label" for="flatrate">统一费用: 50.00元</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="custom-control custom-radio">
+                                                            <input type="radio" id="freeshipping" name="shipping" class="custom-control-input" />
+                                                            <label class="custom-control-label" for="freeshipping">免运费</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>总价</td>
+                                            <td><strong>25.00元</strong></td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- 订单支付方式  -->
+                                <div class="order-payment-method">
+                                    <div class="single-payment-method show">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked  />
+                                                <label class="custom-control-label" for="cashon">货到付款</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="cash">
+                                            <p>交货时现金支付</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-payment-method">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="directbank" name="paymentmethod" value="bank" class="custom-control-input" />
+                                                <label class="custom-control-label" for="directbank">银行卡</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="bank">
+                                            <p>把你的钱直接存入我们的银行帐户。请使用您的订单ID作为付款参考。你方订单在我方账户资金结清后才能发货。</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-payment-method">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input" />
+                                                <label class="custom-control-label" for="checkpayment">Pay with Check</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="check">
+                                            <p>请将支票寄往正确地址</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-payment-method">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal" class="custom-control-input" />
+                                                <label class="custom-control-label" for="paypalpayment">电子支付 <img th:src="@{~/assets/img/paypal-card.jpg}" class="img-fluid paypal-card" alt="Paypal" /></label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="paypal">
+                                            <p>通过PayPal付款；如果你没有PayPal账户，你可以用信用卡支付。</p>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer-area">
+                                        <div class="custom-control custom-checkbox mb-14">
+                                            <input type="checkbox" class="custom-control-input" id="terms" required />
+                                            <label class="custom-control-label" for="terms">我已阅读并同意该网站
+                                                <a href="index.html">条款和条约.</a></label>
+                                        </div>
+                                        <button type="submit" class="check-btn sqr-btn">下订单</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 订单查看主要内容 end -->
+
+        <!-- checkout main wrapper end -->
+
+        <!-- brand area start -->
+        <div th:replace="index::footer1"></div>
+        <!-- brand area end -->
+
+        <!-- footer area start -->
+        <footer th:replace="index::footer2"></footer>
+        <!-- footer area end -->
+
+    </div>
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+
+    <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+    <script th:src="@{~/assets/js/vendor/modernizr-3.6.0.min.js}"></script>
+    <!-- Jquery Min Js -->
+    <script th:src="@{~/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+    <!-- Popper Min Js -->
+    <script th:src="@{~/assets/js/vendor/popper.min.js}"></script>
+    <!-- Bootstrap Min Js -->
+    <script th:src="@{~/assets/js/vendor/bootstrap.min.js}"></script>
+    <!-- Plugins Js-->
+    <script th:src="@{~/assets/js/plugins.js}"></script>
+    <!-- Ajax Mail Js -->
+    <script th:src="@{~/assets/js/ajax-mail.js}"></script>
+    <!-- Active Js -->
+    <script th:src="@{~/assets/js/main.js}"></script>
+    <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+    
+</body>
+
+</html>

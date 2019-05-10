@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http:www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="云鸽租书城">
+    <meta name="keywords" content="云鸽、租书、购买书、新书、二手书">
+
+
+    <!-- Site title -->
+    <title>关于我们</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link th:href="@{~/assets/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font-Awesome CSS -->
+    <link th:href="@{~/assets/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- helper class css -->
+    <link th:href="@{~/assets/css/helper.min.css}" rel="stylesheet">
+    <!-- Plugins CSS -->
+    <link th:href="@{~/assets/css/plugins.css}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link th:href="@{~/assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{~/assets/css/skin-default.css}" rel="stylesheet" id="galio-skin">
+</head>
+
+<body>
+
+<!-- color switcher start -->
+<div class="color-switcher">
+    <div class="color-switcher-inner">
+        <div class="switcher-icon">
+            <i class="fa fa-cog fa-spin"></i>
+        </div>
+
+        <div class="switcher-panel-item">
+            <h3>Color Schemes</h3>
+            <ul class="nav flex-wrap colors">
+                <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+                <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+                <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+                <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+                <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+                <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+            </ul>
+        </div>
+
+        <div class="switcher-panel-item">
+            <h3>Layout Style</h3>
+            <ul class="nav layout-changer">
+                <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+                <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+            </ul>
+        </div>
+
+        <div class="switcher-panel-item bg">
+            <h3>Background Pattern</h3>
+            <ul class="nav flex-wrap bgbody-style bg-pattern">
+                <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+            </ul>
+        </div>
+
+        <div class="switcher-panel-item bg">
+            <h3>Background Image</h3>
+            <ul class="nav flex-wrap bgbody-style bg-img">
+                <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- color switcher end -->
+
+<div class="wrapper box-layout">
+
+    <!-- header area start -->
+    <header>
+
+        <!-- header top start -->
+        <div th:replace="~{index::head1}"></div>
+        <div th:replace="~{index::head2}"></div>
+        <!-- header middle end -->
+
+        <div class="main-header-wrapper bdr-bottom1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-header-inner">
+                            <div class="category-toggle-wrap">
+                                <div class="category-toggle">
+                                    分类
+                                    <div class="cat-icon">
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                </div>
+                                <nav th:replace="~{login-register::listfromlogin}"></nav>
+                            </div>
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul th:replace="~{index::list}"></ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!-- header area end -->
+
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">about us</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+
+    <!-- about wrapper start -->
+    <div class="about-us-wrapper pt-4">
+        <div class="container">
+            <div class="row">
+                <!-- About Text Start -->
+                <div class="col-lg-6">
+                    <div class="about-text-wrap">
+                        <h2><span>最好的服务</span>为你提供最优质的的书籍</h2>
+                        <p>我们提供全世界最好的图书。我们是绵阳最好的网络平台书店。你可以毫不犹豫地购买我们的产品，因为他们信任我们，并且毫不犹豫地购买我们的产品，因为他们相信并且总是乐于购买我们的产品。</p>
+                        <p>我们的一些客户说，他们信任我们，购买我们的产品时没有任何顾虑，因为他们相信我们，并且总是乐于购买我们的产品。</p>
+                        <p>我们提供他们信任我们的书籍，购买我们的产品不需要任何讨价还价，因为他们相信我们，并且总是乐于购买。</p>
+                    </div>
+                </div>
+                <!-- About Text End -->
+                <!-- About Image Start -->
+                <div class="col-lg-5 ml-auto">
+                    <div class="about-image-wrap mt-md-26 mt-sm-26">
+                        <img src="assets/img/about/about.jpg" th:src="@{~/assets/img/about/about.jpg}" alt="About" />
+                    </div>
+                </div>
+                <!-- About Image End -->
+            </div>
+        </div>
+    </div>
+    <!-- about wrapper end -->
+
+    <!-- team area start -->
+    <div class="team-area pt-28">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-box text-center mb-10">
+                        <h3>our team</h3>
+                    </div>
+                </div>
+            </div> <!-- section title end -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team-member mb-30">
+                        <div class="team-thumb img-full">
+                            <img src="assets/img/team/hehang.png" th:src="@{~/assets/img/team/hehang.png}" alt="">
+                            <div class="team-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center">
+                            <h3>何杭</h3>
+                            <h6>数据挖掘</h6>
+                        </div>
+                    </div>
+                </div> <!-- end single team member -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team-member mb-30">
+                        <div class="team-thumb img-full">
+                            <img src="assets/img/team/zjh.png" th:src="@{~/assets/img/team/zjh.png}" alt="">
+                            <div class="team-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center">
+                            <h3>张嘉豪</h3>
+                            <h6>后台</h6>
+                        </div>
+                    </div>
+                </div> <!-- end single team member -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team-member mb-30">
+                        <div class="team-thumb img-full">
+                            <img src="assets/img/team/fwh.png" th:src="@{~/assets/img/team/fwh.png}" alt="">
+                            <div class="team-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center">
+                            <h3>付文豪</h3>
+                            <h6>前端设计</h6>
+                        </div>
+                    </div>
+                </div> <!-- end single team member -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team-member mb-30">
+                        <div class="team-thumb img-full">
+                            <img src="assets/img/team/cyj.png" th:src="@{~/assets/img/team/cyj.png}" alt="">
+                            <div class="team-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content text-center">
+                            <h3>陈驿杰</h3>
+                            <h6>前端设计</h6>
+                        </div>
+                    </div>
+                </div> <!-- end single team member -->
+            </div>
+        </div>
+    </div>
+    <!-- team area end -->
+
+    <!-- testimonial area start -->
+    <div class="testimonial-area2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-title text-center mb-28">
+                        <h3>你好 亲爱的用户</h3>
+                    </div> <!-- section title end -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-carousel-active testimonial-style-2 slick-dot-style">
+                        <div class="testimonial-item text-center">
+                            <div class="testimonial-thumb">
+                                <img src="assets/img/team/zjh.png" th:src="@{~/assets/img/team/zjh.png}" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>你是我患得患失的梦，我是你可有可无的人</p>
+                                <h3><a href="#">张嘉豪</a></h3>
+                            </div>
+                        </div> <!-- end single testimonial item -->
+                        <div class="testimonial-item text-center">
+                            <div class="testimonial-thumb">
+                                <img src="assets/img/team/hehang.png" th:src="@{~/assets/img/team/hehang.png}" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>话不多说</p>
+                                <h3><a href="#">何杭</a></h3>
+                            </div>
+                        </div> <!-- end single testimonial item -->
+                        <div class="testimonial-item text-center">
+                            <div class="testimonial-thumb">
+                                <img src="assets/img/team/fwh.png" th:src="@{~/assets/img/team/fwh.png}" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>我喜欢唱，跳，rap</p>
+                                <h3><a href="#">付文豪</a></h3>
+                            </div>
+                        </div>
+                        <div class="testimonial-item text-center">
+                            <div class="testimonial-thumb">
+                                <img src="assets/img/team/cyj.png" th:src="@{~/assets/img/team/cyj.png}" alt="">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>大家好，我是陈驿杰</p>
+                                <h3><a href="#">陈驿杰</a></h3>
+                            </div>
+                        </div> <!-- end single testimonial item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimonial area end -->
+
+
+    <!-- choosing area start -->
+    <div class="choosing-area pt-28">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-box text-center mb-30">
+                        <h3>为何选择我们</h3>
+                    </div>
+                </div>
+            </div> <!-- section title end -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-choose-item text-center mb-md-30 mb-sm-30">
+                        <i class="fa fa-globe"></i>
+                        <h4>免费送货</h4>
+                        <p>云鸽是一个非常灵活、干净的电子商务图书商城，具有无限的可能性。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-choose-item text-center mb-md-30 mb-sm-30">
+                        <i class="fa fa-plane"></i>
+                        <h4>快速交货</h4>
+                        <p>云鸽是一个非常灵活、干净的电子商务图书商城，具有无限的可能性。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-choose-item text-center mb-md-30 mb-sm-30">
+                        <i class="fa fa-comments"></i>
+                        <h4>客户支持</h4>
+                        <p>云鸽是一个非常灵活、干净的电子商务图书商城，具有无限的可能性。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- choosing area end -->
+
+    <!-- brand area start -->
+    <div th:replace="index::footer1"></div>
+    <!-- brand area end -->
+
+    <!-- footer area start -->
+    <footer th:replace="index::footer2"></footer>
+    <!-- footer area end -->
+
+</div>
+
+<!-- Scroll to top start -->
+<div class="scroll-top not-visible">
+    <i class="fa fa-angle-up"></i>
+</div>
+<!-- Scroll to Top End -->
+
+
+<!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+<script th:src="@{~/assets/js/vendor/modernizr-3.6.0.min.js}"></script>
+<!-- Jquery Min Js -->
+<script th:src="@{~/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+<!-- Popper Min Js -->
+<script th:src="@{~/assets/js/vendor/popper.min.js}"></script>
+<!-- Bootstrap Min Js -->
+<script th:src="@{~/assets/js/vendor/bootstrap.min.js}"></script>
+<!-- Plugins Js-->
+<script th:src="@{~/assets/js/plugins.js}"></script>
+<!-- Ajax Mail Js -->
+<script th:src="@{~/assets/js/ajax-mail.js}"></script>
+<!-- Active Js -->
+<script th:src="@{~/assets/js/main.js}"></script>
+<!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+
+</body>
+
+</html>

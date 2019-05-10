@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <!-- Site title -->
+    <title>个人中心</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{~/assets/img/favicon.png}" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link th:href="@{~/assets/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font-Awesome CSS -->
+    <link th:href="@{~/assets/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- helper class css -->
+    <link th:href="@{~/assets/css/helper.min.css}" rel="stylesheet">
+    <!-- Plugins CSS -->
+    <link th:href="@{~/assets/css/plugins.css}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link th:href="@{~/assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{~/assets/css/skin-default.css}" rel="stylesheet" id="galio-skin">
+</head>
+
+<body>
+
+    <!-- color switcher start -->
+    <div class="color-switcher">
+        <div class="color-switcher-inner">
+            <div class="switcher-icon">
+                <i class="fa fa-cog fa-spin"></i>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Color Schemes</h3>
+                <ul class="nav flex-wrap colors">
+                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Layout Style</h3>
+                <ul class="nav layout-changer">
+                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Pattern</h3>
+                <ul class="nav flex-wrap bgbody-style bg-pattern">
+                    <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Image</h3>
+                <ul class="nav flex-wrap bgbody-style bg-img">
+                    <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- color switcher end -->
+
+    <div class="wrapper box-layout">
+
+        <!-- header area start -->
+       <header>
+           <div th:replace="~{index::head1}"></div>
+           <div th:replace="~{index::head2}"></div>
+           <div class="main-header-wrapper bdr-bottom1">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-lg-12">
+                           <div class="main-header-inner">
+                               <div class="category-toggle-wrap">
+                                   <div class="category-toggle">
+                                       分类
+                                       <div class="cat-icon">
+                                           <i class="fa fa-angle-down"></i>
+                                       </div>
+                                   </div>
+                                   <nav th:replace="~{login-register::listfromlogin}"></nav>
+                               </div>
+                               <div class="main-menu">
+                                   <div class="mean-push"></div><nav id="mobile-menu" style="display: none;">
+                                   <ul th:replace="~{index::list}"></ul>
+                               </nav>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-12 d-block d-lg-none">
+                           <div class="mobile-menu mean-container"><div class="mean-bar"><a href="#nav" class="meanmenu-reveal" style="right:0;left:auto;"><span></span><span></span><span></span></a><nav class="mean-nav">
+                               <ul style="display: none;">
+                                   <li class="active">
+                                       <a th:href="@{../}"><i class="fa fa-home"></i>主页 <i class="fa fa-angle-down"></i></a>
+                                       <ul class="dropdown" style="display: none;">
+                                           <li>
+                                               <a href="#">新书区</a>
+                                           </li>
+                                           <li>
+                                               <a href="#">旧书区</a>
+                                           </li>
+                                           <li>
+                                               <a href="#">旧籍寻踪</a>
+                                           </li>
+                                           <li>
+                                               <a href="#">艺文集览</a>
+                                           </li>
+                                       </ul>
+                                       <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                   <li class="static">
+                                       <a href="#">图书<i class="fa fa-angle-down"></i></a>
+                                       <ul class="megamenu dropdown" style="display: none;">
+                                           <li class="mega-title">
+                                               <a href="#">纸装古籍/国民旧书</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">小说</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">文学</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">历史</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">法律</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">经济</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">生活</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li class="mega-title">
+                                               <a href="#">期刊/报纸/外文原版</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">创刊号</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">报纸综合</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">高校学报</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Literature and Fiction&amp;文学与虚构</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li class="mega-title">
+                                               <a href="#">小说/文学/语言文字</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li class="mega-title">
+                                               <a href="#">工程技术/互联网</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li class="mega-title">
+                                               <a href="#">英语四六级</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li class="mega-title">
+                                               <a href="#">考研资料</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li class="mega-title">
+                                               <a href="#">教材/教辅</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li class="mega-title">
+                                               <a href="#">收藏品</a>
+                                               <ul style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                       </ul>
+                                       <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                   <li>
+                                       <a href="#">书店 <i class="fa fa-angle-down"></i></a>
+                                       <ul class="dropdown" style="display: none;">
+                                           <li>
+                                               <a href="#">西南财经大学天府学院 <i class="fa fa-angle-right"></i></a>
+                                               <ul class="dropdown" style="display: none;">
+                                                   <li>
+                                                       <a href="#">绵阳校区图书馆</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">成都东区图书馆</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">成都西区图书馆</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">罗江校区图书馆</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">敏思书设</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">多米岛</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li>
+                                               <a href="#">XXXXXXX学院 <i class="fa fa-angle-right"></i></a>
+                                               <ul class="dropdown" style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                           <li>
+                                               <a href="#">XXXXXXX学院 <i class="fa fa-angle-right"></i></a>
+                                               <ul class="dropdown" style="display: none;">
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                                   <li>
+                                                       <a href="#">Demo</a>
+                                                   </li>
+                                               </ul>
+                                               <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                       </ul>
+                                       <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+                                   <li>
+                                       <a href="#">Type <i class="fa fa-angle-down"></i></a>
+                                       <ul class="dropdown" style="display: none;">
+                                           <li>
+                                               <a href="#">Demo</a>
+                                           </li>
+                                           <li>
+                                               <a href="#">Demo</a>
+                                           </li>
+                                           <li>
+                                               <a href="#">Demo</a>
+                                           </li>
+                                           <li>
+                                               <a href="#">Demo</a>
+                                           </li>
+                                           <li>
+                                               <a href="#">Demo</a>
+                                           </li>
+                                       </ul>
+                                       <a class="mean-expand" href="#" style="font-size: 18px">+</a></li>
+
+                                   <li class="mean-last">
+                                       <a href="contact-us.html">联系我们</a>
+                                   </li>
+                               </ul>
+                           </nav></div></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </header>
+        <!-- header area end -->
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a th:href="@{../}">当前用户</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page" th:text="${session.loginUser.username}">my account</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- my account wrapper start -->
+        <!-- 我的账户 start -->
+        <div class="my-account-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- 我的账户页面 Start -->
+                        <div class="myaccount-page-wrapper">
+                            <!-- 我的账户页面选项卡菜单 Start -->
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="myaccount-tab-menu nav" role="tablist">
+                                        <a href="#dashboad" class="active" data-toggle="tab"><i class="fa fa-dashboard"></i>说明
+                                        </a>
+                                        <a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> 订单</a>
+                                        <a href="#download" data-toggle="tab"><i class="fa fa-diamond"></i> 积分</a>
+                                        <a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i> 付款方式
+                                        </a>
+                                        <a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i> 地址</a>
+                                        <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> 账户详情</a>
+                                        <a href="login-register.html" th:href="@{/user/exit}"><i class="fa fa-sign-out"></i> 注销</a>
+                                    </div>
+                                </div>
+                                <!-- 我的账户页面选项卡菜单 End -->
+
+                                <!-- 我的帐户选项卡内容 Start -->
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="tab-content" id="myaccountContent">
+                                        <!--第一栏 start -->
+                                        <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h3>声明</h3>
+                                                <div class="welcome">
+                                                    <p>尊敬的用户<strong th:text="${session.loginUser.username}">Chen</strong> (如果你不是 <strong th:text="${session.loginUser.username}">Chen !</strong>
+                                                        <a href="login-register.html" th:href="@{/user/exit}" class="logout"> 注销</a>)</p>
+                                                </div>
+                                                <p class="mb-0">来自您的帐户信息中心。您可以轻松查看和查看最近的订单，管理您的送货和帐单地址，以及修改密码和帐户详细信息。</p>
+                                            </div>
+                                        </div>
+                                        <!--第一栏 End -->
+
+                                        <!-- 第二栏 Start -->
+                                        <div class="tab-pane fade" id="orders" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h3>订单</h3>
+                                                <div class="myaccount-table table-responsive text-center">
+                                                    <table class="table table-bordered">
+                                                        <thead class="thead-light">
+                                                        <tr>
+                                                            <th>订单</th>
+                                                            <th>日期</th>
+                                                            <th>商品</th>
+                                                            <th>价格</th>
+                                                            <th>查看</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>2018年1月1日</td>
+                                                            <td>《摆渡人》</td>
+                                                            <td>35.00元</td>
+                                                            <td>
+                                                                <a href="cart.html" class="check-btn sqr-btn ">详情</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>2018年1月2日</td>
+                                                            <td>《追风筝的人》</td>
+                                                            <td>20.00元</td>
+                                                            <td>
+                                                                <a href="cart.html" class="check-btn sqr-btn ">详情</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>2017年7月7日</td>
+                                                            <td>《月亮与六便士》</td>
+                                                            <td>26.00元</td>
+                                                            <td>
+                                                                <a href="cart.html" class="check-btn sqr-btn ">详情</a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 第二栏 End -->
+
+                                        <!-- 第三栏 Start -->
+                                        <div class="tab-pane fade" id="download" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h3>积分</h3>
+                                                <div class="myaccount-table table-responsive text-center">
+                                                    <table class="table table-bordered">
+                                                        <thead class="thead-light">
+                                                        <tr>
+                                                            <th>商品</th>
+                                                            <th>日期</th>
+                                                            <th>积分使用情况</th>
+                                                            <th>可用积分</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>《恶之花》</td>
+                                                            <td>2017年8月22日</td>
+                                                            <td>+200</td>
+                                                            <td>400</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>《英语四级模拟考试真题》</td>
+                                                            <td>2017年10月5日</td>
+                                                            <td>+200</td>
+                                                            <td>600</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>《计算机二级模拟考试真题》</td>
+                                                            <td>2018年11月5日</td>
+                                                            <td>-100</td>
+                                                            <td>500</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 第三栏 End -->
+
+                                        <!-- 第四栏 Start -->
+                                        <div class="tab-pane fade" id="payment-method" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h3>付款方式</h3>
+                                                <a href="#"><p class="saved-message">支付宝</p></a>
+                                                <a href="#"><p class="saved-message">微信</p></a>
+                                                <a href="#"><p class="saved-message">银联</p></a>
+                                            </div>
+                                        </div>
+                                        <!-- 第四栏 End -->
+
+                                        <!-- 第五栏 Start -->
+                                        <div class="tab-pane fade" id="address-edit" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h3>管理地址</h3>
+                                                <address>
+                                                    <p><strong>Lorem</strong></p>
+                                                    <p id="can-write">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum corrupti harum deserunt incidunt ad asperiores rerum enim laboriosam tenetur non molestiae vitae quo quaerat minima natus ipsa labore eveniet quasi. <br>
+                                                    </p>
+                                                    <p>电话: (123) 456-7890</p>
+                                                </address>
+                                                <a href="#" class="check-btn sqr-btn " id="edit"><i class="fa fa-edit"></i> 编辑地址</a>
+                                            </div>
+
+                                        </div>
+                                        <!-- 第五栏 End -->
+
+                                        <!-- 第六栏 Start -->
+                                        <div class="tab-pane fade" id="account-info" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h3>用户详情</h3>
+                                                <div class="account-details-form">
+                                                    <form action="#">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="single-input-item">
+                                                                    <label for="first-name" class="required">姓名</label>
+                                                                    <input type="text" id="first-name" placeholder="请输入姓名" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="display-name" class="required">名称</label>
+                                                            <input type="text" id="display-name" placeholder="请输入名称" />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="email" class="required">邮箱</label>
+                                                            <input type="email" id="email" placeholder="邮箱" />
+                                                        </div>
+                                                        <fieldset>
+                                                            <legend>更改密码</legend>
+                                                            <div class="single-input-item">
+                                                                <label for="current-pwd" class="required">当前密码 </label>
+                                                                <input type="password" id="current-pwd" placeholder="Password" />
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="new-pwd" class="required">新密码</label>
+                                                                        <input type="password" id="new-pwd" placeholder="Password" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="confirm-pwd" class="required">确认密码</label>
+                                                                        <input type="password" id="confirm-pwd" placeholder="CPassword" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <div class="single-input-item">
+                                                            <button class="check-btn sqr-btn ">保存</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 第六栏 End -->
+                                    </div>
+                                </div>
+                                <!-- 我的帐户选项卡内容 End -->
+                            </div>
+                        </div>
+                        <!-- 我的账户页面选项卡菜单 End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 我的账户 end -->
+
+        <!-- brand area start -->
+        <div th:replace="index::footer1"></div>
+        <!-- brand area end -->
+
+        <!-- footer area start -->
+        <footer th:replace="index::footer2"></footer>
+        <!-- footer area end -->
+
+    </div>
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+
+    <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+    <script th:src="@{~/assets/js/vendor/modernizr-3.6.0.min.js}"></script>
+    <!-- Jquery Min Js -->
+    <script th:src="@{~/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+    <!-- Popper Min Js -->
+    <script th:src="@{~/assets/js/vendor/popper.min.js}"></script>
+    <!-- Bootstrap Min Js -->
+    <script th:src="@{~/assets/js/vendor/bootstrap.min.js}"></script>
+    <!-- Plugins Js-->
+    <script th:src="@{~/assets/js/plugins.js}"></script>
+    <!-- Ajax Mail Js -->
+    <script th:src="@{~/assets/js/ajax-mail.js}"></script>
+    <!-- Active Js -->
+    <script th:src="@{~/assets/js/main.js}"></script>
+    <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+    
+</body>
+
+</html>

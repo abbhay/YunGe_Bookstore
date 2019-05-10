@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <!-- Site title -->
+    <title>联系我们</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link th:href="@{~/assets/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font-Awesome CSS -->
+    <link th:href="@{~/assets/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- helper class css -->
+    <link th:href="@{~/assets/css/helper.min.css}" rel="stylesheet">
+    <!-- Plugins CSS -->
+    <link th:href="@{~/assets/css/plugins.css}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link th:href="@{~/assets/css/style.css}" rel="stylesheet">
+    <link th:href="@{~/assets/css/skin-default.css}" rel="stylesheet" id="galio-skin">
+</head>
+
+<body>
+
+    <!-- color switcher start -->
+    <div class="color-switcher">
+        <div class="color-switcher-inner">
+            <div class="switcher-icon">
+                <i class="fa fa-cog fa-spin"></i>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Color Schemes</h3>
+                <ul class="nav flex-wrap colors">
+                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Layout Style</h3>
+                <ul class="nav layout-changer">
+                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Pattern</h3>
+                <ul class="nav flex-wrap bgbody-style bg-pattern">
+                    <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Image</h3>
+                <ul class="nav flex-wrap bgbody-style bg-img">
+                    <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- color switcher end -->
+
+    <div class="wrapper box-layout">
+
+        <!-- header area start -->
+        <header>
+
+            <!-- header top start -->
+            <div th:replace="~{index::head1}"></div>
+            <div th:replace="~{index::head2}"></div>
+            <!-- header middle end -->
+
+            <!-- main menu area start -->
+            <div class="main-header-wrapper bdr-bottom1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-header-inner">
+                                <div class="category-toggle-wrap">
+                                    <div class="category-toggle">
+                                        分类
+                                        <div class="cat-icon">
+                                            <i class="fa fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                    <nav th:replace="~{login-register::listfromlogin}"></nav>
+                                </div>
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul th:replace="~{index::list}"></ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-block d-lg-none">
+                            <div class="mobile-menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main menu area end -->
+
+        </header>
+        <!-- header area end -->
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">contact us</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+
+
+        <!-- 联系我们 start -->
+        <div class="contact-area pb-34 pb-md-18 pb-sm-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-message">
+                            <h2>告诉我们您的意见</h2>
+                            <form id="contact-form" action="assets/php/mail.php" method="post" class="contact-form">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="first_name" placeholder="Name *" type="text" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="phone" placeholder="Phone *" type="text" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="email_address" placeholder="Email *" type="text" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="contact_subject" placeholder="Subject *" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="contact2-textarea text-center">
+                                            <textarea placeholder="Message *" name="message"  class="form-control2" required=""></textarea>
+                                        </div>
+                                        <div class="contact-btn">
+                                            <button class="sqr-btn" type="submit">发送</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <p class="form-messege"></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-info mt-md-28 mt-sm-28">
+                            <h2>联系我们</h2>
+                            <ul>
+                                <li><i class="fa fa-fax"></i> 地址：中国，四川省，绵阳市涪城区，西南财经大学天府学院</li>
+                                <li><i class="fa fa-phone"></i> info@yourdomain.com</li>
+                                <li><i class="fa fa-envelope-o"></i> 13112345678</li>
+                            </ul>
+                            <div class="working-time">
+                                <h3>在线时间</h3>
+                                <p><span>周一 —— 周六:</span>8.00 – 20.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 联系我们 end -->
+
+        <!-- map area start -->
+        <div class="map-area-wrapper">
+            <div class="container">
+                <div id="map_content" data-lat="31.4925011946" data-lng="104.6859447112" data-zoom="16" data-maptitle="绵阳" data-mapaddress="涪城区，创业大道，园兴西街2号     </br> 西南财经大学天府学院">
+                </div>
+            </div>
+        </div>
+
+        <!-- map area end -->
+
+        <!-- brand area start -->
+        <div th:replace="index::footer1"></div>
+        <!-- brand area end -->
+
+        <!-- footer area start -->
+        <footer th:replace="index::footer2"></footer>
+        <!-- footer area end -->
+
+    </div>
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+
+
+    <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+    <script th:src="@{~/assets/js/vendor/modernizr-3.6.0.min.js}"></script>
+    <!-- Jquery Min Js -->
+    <script th:src="@{~/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+    <!-- Popper Min Js -->
+    <script th:src="@{~/assets/js/vendor/popper.min.js}"></script>
+    <!-- Bootstrap Min Js -->
+    <script th:src="@{~/assets/js/vendor/bootstrap.min.js}"></script>
+    <!-- Plugins Js-->
+    <script th:src="@{~/assets/js/plugins.js}"></script>
+    <!-- Ajax Mail Js -->
+    <script th:src="@{~/assets/js/ajax-mail.js}"></script>
+    <!-- Active Js -->
+    <script th:src="@{~/assets/js/main.js}"></script>
+    <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+    
+</body>
+
+</html>
